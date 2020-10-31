@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+  <item android:id="@+id/grade1"
+        android:title="1학년" />
+  <item android:id="@+id/grade2"
+        android:title="2학년" />
+  <item android:id="@+id/grade3"
+        android:title="3학년" />
+</menu>

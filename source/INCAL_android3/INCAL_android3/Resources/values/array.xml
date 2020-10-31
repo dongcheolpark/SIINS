@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  <string-array name="classoption">
+    <item>1반</item>
+    <item>2반</item>
+    <item>3반</item>
+    <item>4반</item>
+    <item>5반</item>
+    <item>6반</item>
+    <item>7반</item>
+    <item>8반</item>
+    <item>9반</item>
+    <item>10반</item>
+  </string-array>
+  <string-array name="classoptionvalues">
+    <item>1</item>
+    <item>2</item>
+    <item>3</item>
+    <item>4</item>
+    <item>5</item>
+    <item>6</item>
+    <item>7</item>
+    <item>8</item>
+    <item>9</item>
+    <item>10</item>
+  </string-array>
+  <string-array name="gradeoption">
+    <item>1학년</item>
+    <item>2학년</item>
+    <item>3학년</item>
+  </string-array>
+  <string-array name="gradeoptionvalues">
+    <item>1</item>
+    <item>2</item>
+    <item>3</item>
+  </string-array>
+</resources>

@@ -1,0 +1,9 @@
+HomeworkDBContext
+CommentDBContext
+ImageDBContext
+UserDBContext
+CategoryDBContext
+UserCategoryDBContext
+UserCategoriesDBContext
+NoteCatDBContext
+ClassNotiDBcontext

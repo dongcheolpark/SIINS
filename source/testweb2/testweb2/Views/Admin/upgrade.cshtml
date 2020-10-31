@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "upgrade";
+}
+
+
+<div class="page-all">
+    <div class="form-input-500" style="text-align:center;">
+        <h3>유저권한변경</h3>
+        <form class="form-signin" method="post">
+            <input class="form-control" type="text" name="UserId" placeholder="아이디" />
+
+            <select class="custom-select" id="inputGroupSelect01" name="UserClass">
+                <option selected>Choose...</option>
+                <option value="Admin">관리자</option>
+                <option value="Teacher">선생님</option>
+                <option value="Student">학생</option>
+            </select>
+
+            <div class="text-center">
+                <input class="btn btn-primary" type="submit" />
+            </div>
+        </form>
+    </div>
+</div>

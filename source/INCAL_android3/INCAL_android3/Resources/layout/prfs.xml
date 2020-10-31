@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <PreferenceCategory android:title="일반">
+
+    <ListPreference
+        android:title="학년설정"
+        android:key="Grade"
+        android:summary="자신의 학년을 선택하세요."
+        android:entries="@array/gradeoption"
+        android:entryValues="@array/gradeoptionvalues"/>
+    <ListPreference
+        android:title="반설정"
+        android:key="Class"
+        android:summary="자신의 학급을 선택하세요."
+        android:entries="@array/classoption"
+        android:entryValues="@array/classoptionvalues"/>
+
+  </PreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "ViewDB";
+}
+
+
+<div class="page-all">
+    <div class="form-input" style="text-align:center;">
+        <h2>ViewDB</h2>
+        <hr />
+        <form class="form-inline" action="/Admin/ViewDB" method="post">
+            <div class="form-group mb-2">
+                <select class="form-control" name="DbContext">
+                    <option>HomeworkDBContext</option>
+                    <option>CommentDBContext</option>
+                    <option>ImageDBContext</option>
+                    <option>UserDBContext</option>
+                    <option>CategoryDBContext</option>
+                    <option>UserCategoriesDBContext</option>
+                    <option>NoteCatDBContext</option>
+                    <option>ClassNotiDBcontext</option>
+                </select>
+            </div>
+            <div class="form-group mb-2">
+                <input type="submit" value="전송" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+

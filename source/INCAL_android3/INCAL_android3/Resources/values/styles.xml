@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<resources>
+  <style name="MyCustomTheme" parent="android:Theme.Material.Light">
+    <item name="android:colorPrimary">#5F4B8B</item>
+    <item name="android:colorAccent">@color/my_purple</item>
+    <item name="android:windowNoTitle">true</item>
+    <item name="android:windowActionBar">false</item>
+  </style>
+  
+  <style name="MyTheme" parent ="android:Theme.Material.Light">
+    <item name="android:windowNoTitle">true</item>
+    <item name="android:windowFullscreen">true</item>
+    <item name="android:windowContentOverlay">@null</item>
+    <item name="android:windowActionBar">true</item>
+  </style>
+
+  <style name="MyTheme.Splash" parent ="android:Theme.Material.Light">
+    <item name="android:windowBackground">@drawable/splash_screen</item>
+    <item name="android:windowNoTitle">true</item>
+    <item name="android:windowFullscreen">true</item>
+  </style>
+</resources>

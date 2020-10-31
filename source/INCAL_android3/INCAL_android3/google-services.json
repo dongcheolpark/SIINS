@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "118956844564",
+    "firebase_url": "https://incal-d8f10.firebaseio.com",
+    "project_id": "incal-d8f10",
+    "storage_bucket": "incal-d8f10.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:118956844564:android:06d0f323c4b14f79",
+        "android_client_info": {
+          "package_name": "INCAL_android3.INCAL_android3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "118956844564-i2nuub9v2t26m3hu8ucfq9ac6t4th9hn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "INCAL_android3.INCAL_android3",
+            "certificate_hash": "5e13fbdd1c96c43f0cf34310cfd90d9413b48b6a"
+          }
+        },
+        {
+          "client_id": "118956844564-vnvbjcqvouvio6ageapamqc7g89fffht.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3afv1-PdGVXKJTnPhTPquCnuiQ4X9BtM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "118956844564-vnvbjcqvouvio6ageapamqc7g89fffht.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

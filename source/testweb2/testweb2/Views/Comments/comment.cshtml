@@ -1,0 +1,62 @@
+﻿@model IEnumerable<MvcMovie.Models.Comment>
+
+@{
+    Layout = "";
+}
+
+<hr />
+<form method="post" action="~/comments/create">
+    <h3>댓글달기</h3>
+    <input type="hidden" name="NoteNo" value="@ViewBag.NoteNo" />
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" name="contents" placeholder="댓글" aria-label="댓글" aria-describedby="button-addon1">
+        <div class="input-group-append">
+            <input class="btn btn-outline-secondary" type="submit" id="button-addon2" />
+        </div>
+    </div>
+</form>
+
+<div class="comments-area" style="margin-left:10%;margin-right:10%">
+    <h4>@ViewBag.CommentsCount Comments</h4>
+    <div class="comment-list">
+        @foreach (var item in Model)
+        {
+            <div class="single-comment justify-content-between d-flex" style="padding-top:15px">
+                <div class="user justify-content-between d-flex">
+                    <div class="thumb">
+                        <img src="/img/comment/comments-icon.png" alt="">
+                    </div>
+                    <div class="desc">
+                        <p class="comment">
+                            @item.CommentContents
+                        </p>
+                        <div class="d-flex justify-content-between">
+                            <div class="d-flex align-items-center">
+                                <h5>
+                                    <a href="#">@item.UserName</a>
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<script>
+    function deletecomments(id) {
+        var form = document.createElement("form");
+        form.setAttribute("method", "Post");
+        form.setAttribute("action", "/Comments/Delete");//form 생성 및 형식 설정
+
+        var hiddenField = document.createElement("input");
+        hiddenField.setAttribute("name", "CommentNo")
+        hiddenField.setAttribute("value", id);//form 내용 삽입
+
+        form.appendChild(hiddenField);
+        document.body.appendChild(form);
+        form.submit();//form 전송
+    }
+</script>
+<hr />

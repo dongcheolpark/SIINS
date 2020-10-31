@@ -1,0 +1,31 @@
+﻿@model IEnumerable<MvcMovie.Models.Image>
+
+@{
+    ViewBag.Title = "Index";
+    var a = ViewBag.Page;
+    var pagination = (a - 1) / 5;
+    var page1 = string.Format("/Images/Index/{0}", a - 1);
+    var page2 = string.Format("/Images/Index/{0}", a + 1);
+}
+<p class="text-center">
+    <div class="container text-center" style="overflow:hidden">
+        @foreach (var item in Model)
+        {
+            <div class="flex-md-grow-1">
+                <img class="img-fluid" src="@item.Imgurl" />
+            </div>
+        }
+    </div>
+</p>
+<nav aria-label="Page Nav">
+    <ul class="pagination justify-content-center">
+        <li class="page-item"><a class="page-link" href="@page1">&laquo;</a></li>
+        @{
+            for (int i = pagination * 5 + 1; i <= pagination * 5 + 5; i++)
+            {
+                <li class="page-item"><a class="page-link" href="/Images/Index/@i">@i</a></li>
+            }
+        }
+        <li class="page-item"><a class="page-link" href="@page2">&raquo;</a></li>
+    </ul>
+</nav>

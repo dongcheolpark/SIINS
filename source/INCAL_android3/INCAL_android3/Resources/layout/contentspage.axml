@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:text="Large Text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#5F4B8B"
+        android:gravity="center"
+        android:textSize="25dp"
+        android:id="@+id/title"
+        android:textColor="#FFFFFF" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#5F4B8B"
+        android:id="@+id/imageView6" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout1">
+        <TextView
+            android:text="Medium Text"
+            android:textSize="15dp"
+            android:id="@+id/Date_text"
+            android:layout_gravity="left"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="#000000" />
+        <TextView
+            android:text="Medium Text"
+            android:textSize="15dp"
+            android:id="@+id/T_name_text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="#000000" />
+        <TextView
+            android:text="Medium Text"
+            android:textSize="15dp"
+            android:id="@+id/Subject_text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="#000000" />
+    </LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#5F4B8B"
+        android:id="@+id/imageView5" />
+    <ScrollView
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout2">
+        <android.webkit.WebView
+            android:text="Small Text"
+            android:textSize="15dp"
+            android:id="@+id/contents"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="#000000" />
+    </ScrollView>
+</LinearLayout>

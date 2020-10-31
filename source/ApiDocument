@@ -1,0 +1,15 @@
+이 문서는 INCAL System의 Net Api를 정리하기위해 만들어 졌습니다.
+
+1.형식
+ INCAL System은 Tcp소켓을 통해 통신합니다.
+
+1-1.숙제 데이터 송신&수신
+ 클라이언트들은 가장 첫 커맨드로 'GetHomeWorkList'를 송신합니다.
+ 그 후 클라이언트에 로그인한 사용자의 Id를 송신합니다.
+
+ 서버는 'GetHomeWorkList'를 수신받으면 사용자의 숙제 데이터를 전송합니다.
+
+ ex)
+Client : GetHomeWorkList 1000 
+Server : 
+ 

@@ -1,0 +1,233 @@
+﻿@model testweb2.Models.GradeData
+
+@{
+    ViewBag.Title = "과제 추가";
+}
+<div class="page-all">
+    <div class="form-input">
+
+        <form id="fmField" name="fmField" action="/Homework/Create" method="post" onsubmit="return checkForm();">
+            @Html.AntiForgeryToken()
+            <h4>과제 추가</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon3">과목</span>
+                </div>
+                <input type="text" class="form-control" id="subject" name="Subject" aria-describedby="basic-addon3">
+            </div>
+
+            <!--과목 input-->
+            <!--<div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon3">선생님 성함</span>
+                </div>
+                <input type="text" class="form-control" id="basic-url" name="T_name" aria-describedby="basic-addon3">
+            </div>-->
+            <!--선생님 이름 input-->
+
+            <div class="input-group mb-3 div-border">
+                <div class="mb-3" style="width:100%;">
+                    학년 반
+                    <div class="mb-2">
+                        <hr />
+                        <div class="mb-1" style="border:1px solid #000000;">
+                            <h4>1학년</h4>
+                            @for (int i = 1; i <= Model.grade.Class1; i++)
+                            {
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="checkbox2[]" value="@string.Format("1"+"{0:D2}",i)">
+                                    <label class="form-check-label" for="inlineCheckbox1">1학년 @i 반 </label>
+                                </div>
+                            }
+                            <h4>2학년</h4>
+                            @for (int i = 1; i <= Model.grade.Class2; i++)
+                            {
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="checkbox2[]" value="@string.Format("2"+"{0:D2}",i)">
+                                    <label class="form-check-label" for="inlineCheckbox1">2학년 @i 반 </label>
+                                </div>
+                            }
+                            <h4>3학년</h4>
+                            @for (int i = 1; i <= Model.grade.Class3; i++) 
+                            {
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="checkbox2[]" value="@string.Format("3"+"{0:D2}",i)">
+                                    <label class="form-check-label" for="inlineCheckbox1">3학년 @i 반 </label>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3" style="width:100%;">
+                    과목
+                    <div class="mb-2">
+                        <hr />
+                        @foreach (var item in Model.category)
+                        {
+                            if (string.Compare(item.CatAttribute, "과목") == 0)
+                            {
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="Checkbox[]" value="@item.CatId">
+                                    <label class="form-check-label" for="inlineCheckbox1">@item.CatName</label>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="mb-3" style="width:100%;">
+                    동아리
+                    <div class="mb-2">
+                        <hr />
+                        @foreach (var item in Model.category)
+                        {
+                            if (string.Compare(item.CatAttribute, "동아리") == 0)
+                            {
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="Checkbox[]" value="@item.CatId">
+                                    <label class="form-check-label" for="inlineCheckbox1">@item.CatName</label>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="mb-3" style="width:100%;">
+                    기타
+                    <div class="mb-2">
+                        <hr />
+                        @foreach (var item in Model.category)
+                        {
+                            if (string.Compare(item.CatAttribute, "기타") == 0)
+                            {
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="Checkbox[]" value="@item.CatId">
+                                    <label class="form-check-label" for="inlineCheckbox1">@item.CatName</label>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <!--카테고리 input-->
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon3">제목</span>
+                </div>
+                <input type="text" class="form-control" id="Title" name="Title" aria-describedby="basic-addon3">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon3">날짜</span>
+                </div>
+                <input type="date" class="form-control" id="date" name="Date" value="@DateTime.Now" aria-describedby="basic-addon3">
+            </div>
+
+            <div class="form-group">
+                <div class="mb-3">
+                    <textarea id="summernote" name="Contents"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="만들기" class="btn btn-primary" />
+                </div>
+            </div>
+        </form>
+
+
+        <script>
+            function checkForm() {
+                var subject = document.fmField.subject;
+                var title = document.fmField.title;
+                var date = document.fmField.date;
+
+                if (subject.value == '') {
+                    window.alert("과목을 입력하세요");
+                    document.fmField.subject.focus();
+                    document.getElementById('subject').select();
+                    return false;
+                }
+
+                if (title.value == '') {
+                    window.alert("제목을 입력하세요");
+                    document.fmField.title.focus();
+                    document.getElementById('title').select();
+                    return false;
+                }
+
+                if (date.value == '') {
+                    window.alert("날짜를 입력하세요");
+                    document.fmField.date.focus();
+                    document.getElementById('date').select();
+                    return false;
+                }
+            }
+
+
+            출처: https://webclub.tistory.com/59 [Web Club]
+            $(document).ready(function () {
+                $("#Datepick").datepicker();
+
+                $('#summernote').summernote({
+                    height: 700,
+                    minHeight: null,
+                    maxHeight: 200,
+                    focus: true,
+                    popover: {
+                        image: [],
+                        link: [],
+                        air: []
+                    }
+                });
+            });
+
+            function sendFile(file) {
+                var form_data = new FormData();
+                form_data.append('file', file);
+                $.ajax({
+                    data: form_data,
+                    type: "POST",
+                    url: 'Image',
+                    cache: false,
+                    contentType: false,
+                    enctype: 'multipart/form-data',
+                    processData: false,
+                    success: function (url) {
+                        $('#summernote').summernote('insertImage', url);
+                    }
+                });
+            }
+            $('#summernote').summernote({
+                height: 600,
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'italic', 'underline', 'clear']],
+                    ['fontname', ['fontname']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['height', ['height']],
+                    ['table', ['table']],
+                    ['insert', ['link', 'picture', 'hr']],
+                    ['view', ['fullscreen', 'codeview']],
+                    ['help', ['help']]
+                ],
+
+                callbacks: {
+                    onImageUpload: function (files) {
+                        sendFile(files[0]);
+                        $summernote.summernote('insertNode', imgNode);
+                    }
+                }
+
+            });
+
+            /*function showContent() {
+                $('.output').html($('#summernote').summernote('code'));
+            }*/
+        </script>
+    </div>
+</div>

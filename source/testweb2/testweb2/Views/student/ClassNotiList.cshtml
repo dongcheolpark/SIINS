@@ -1,0 +1,101 @@
+﻿@model IEnumerable<testweb2.Models.ClassNoti>
+
+@{
+    ViewBag.Title = "ClassNotiList";
+}
+
+
+<div class="page-all">
+    <div class="form-input">
+        <h2>교실 알림 내역</h2>
+
+        <div class="form-input">
+            <form action="/student/ClassNotiList" method="post">
+                <div class="row">
+                    <div class="col" style="width:20%">
+                        <select class="form-control" name="Grade">
+                            <option selected>학년</option>
+                            <option value="1">1학년</option>
+                            <option value="2">2학년</option>
+                            <option value="3">3학년</option>
+                        </select>
+                    </div>
+                    <div class="col" style="width:20%">
+                        <select class="form-control" name="Class">
+                            <option selected>반</option>
+                            <option value="1">1반</option>
+                            <option value="2">2반</option>
+                            <option value="3">3반</option>
+                            <option value="4">4반</option>
+                            <option value="5">5반</option>
+                            <option value="6">6반</option>
+                            <option value="7">7반</option>
+                            <option value="8">8반</option>
+                        </select>
+                    </div>
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="전송" class="btn btn-primary" />
+                    </div>
+
+                </div>
+            </form>
+        </div>
+        <table class="table">
+            <colgroup>
+                <col style="width:20%" />
+                <col style="width:20%" />
+                <col style="width:50%" />
+                <col style="width:10%" />
+            </colgroup>
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">
+                        시간
+                    </th>
+                    <th scope="col">
+                        유형
+                    </th>
+                    <th scope="col">
+                        내용
+                    </th>
+                    <th scope="col">
+                        반
+                    </th>
+                    <th scope="col">
+                        응급
+                    </th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td scope="col">
+                            @item.ClassNotiTime
+                        </td>
+                        <td scope="col">
+                            @item.ClassNotiAttribute
+                        </td>
+                        <td scope="col">
+                            @item.ClassNotiText
+                        </td>
+                        <td scope="col">
+                            @item.ClassNoticlass
+                        </td>
+                        @if (item.ClassNotiEmergency)
+                        {
+
+                            <td style="color:red">
+                                응급
+                            </td>
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+                    </tr>
+                }
+            </thead>
+        </table>
+    </div>
+</div>
+

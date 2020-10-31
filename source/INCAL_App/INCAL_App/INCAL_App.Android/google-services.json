@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "162154456218",
+    "firebase_url": "https://incal-309fd.firebaseio.com",
+    "project_id": "incal-309fd",
+    "storage_bucket": "incal-309fd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:162154456218:android:4b61c58b638db9ab",
+        "android_client_info": {
+          "package_name": "com.INCAL.INCAL_App"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "162154456218-e9skge2i0aj4beh26siaei9olm26eifk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYq_qReSPWE1tnl8zHA-sTjntixkLKE8s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "162154456218-e9skge2i0aj4beh26siaei9olm26eifk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

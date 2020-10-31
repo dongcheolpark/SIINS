@@ -1,0 +1,9 @@
+mvc 
+https://ko.wikipedia.org/wiki/MVC
+마이크로소프트 학습 홈페이지
+https://docs.microsoft.com/ko-kr/aspnet/core/?view=aspnetcore-3.1
+세션
+https://hahahoho5915.tistory.com/32
+
+https://m.blog.naver.com/PostView.nhn?blogId=tpinlab&logNo=10121517078&proxyReferer=https:%2F%2Fwww.google.com%2F
+해시함수

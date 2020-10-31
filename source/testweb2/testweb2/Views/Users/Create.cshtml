@@ -1,0 +1,118 @@
+﻿@model testweb2.Models.GradeData
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="page-all">
+    <div class="form-input" style="width:1000px">
+        <form class="form-signin text-center" style="margin:auto" role="form" method="post" action="Create">
+            <h2 class="form-text">회원가입</h2>
+
+            <div class="input-group mb-3" id="divId">
+                <input type="text" class="form-control onlyAlphabetAndNumber" id="UserId" name="UserId" data-rule-required="true" placeholder="아이디" maxlength="30">
+            </div>
+
+            <div class="input-group mb-3" id="divPassword">
+                <input type="password" class="form-control" id="UserPassword" name="UserPassword" data-rule-required="true" placeholder="패스워드" maxlength="30">
+            </div>
+
+            <div class="input-group mb-3" id="divName">
+                <input type="text" class="form-control onlyHangul" id="UserName" name="UserName" data-rule-required="true" placeholder="닉네임" maxlength="15">
+            </div>
+
+
+            <div class="input-group mb-3 div-border">
+                <div class="mb-3" style="width:100%;">
+                    학년 반
+                    <div class="mb-2">
+                        <hr />
+                        <div class="mb-1" style="border:1px solid #000000;">
+                            <h4>1학년</h4>
+                            @for (int i = 1; i <= Model.grade.Class1; i++)
+                            {
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="radio" value="@string.Format("1"+"{0:D2}",i)">
+                                    <label class="form-check-label" for="inlineCheckbox1">1학년 @i 반 </label>
+                                </div>
+                            }
+                            <h4>2학년</h4>
+                            @for (int i = 1; i <= Model.grade.Class2; i++)
+                            {
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="radio" value="@string.Format("1"+"{0:D2}",i)">
+                                    <label class="form-check-label" for="inlineCheckbox1">2학년 @i 반 </label>
+                                </div>
+                            }
+                            <h4>3학년</h4>
+                            @for (int i = 1; i <= Model.grade.Class3; i++)
+                            {
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="radio" value="@string.Format("1"+"{0:D2}",i)">
+                                    <label class="form-check-label" for="inlineCheckbox1">3학년 @i 반 </label>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3" style="width:100%;">
+                    과목
+                    <div class="mb-2">
+                        <hr />
+                        @foreach (var item in Model.category)
+                        {
+                            if (string.Compare(item.CatAttribute, "과목") == 0)
+                            {
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="Checkbox[]" value="@item.CatId">
+                                    <label class="form-check-label" for="inlineCheckbox1">@item.CatName</label>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="mb-3" style="width:100%;">
+                    동아리
+                    <div class="mb-2">
+                        <hr />
+                        @foreach (var item in Model.category)
+                        {
+                            if (string.Compare(item.CatAttribute, "동아리") == 0)
+                            {
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="Checkbox[]" value="@item.CatId">
+                                    <label class="form-check-label" for="inlineCheckbox1">@item.CatName</label>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="mb-3" style="width:100%;">
+                    기타
+                    <div class="mb-2">
+                        <hr />
+                        @foreach (var item in Model.category)
+                        {
+                            if (string.Compare(item.CatAttribute, "기타") == 0)
+                            {
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="Checkbox[]" value="@item.CatId">
+                                    <label class="form-check-label" for="inlineCheckbox1">@item.CatName</label>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-login100-form-btn">
+                <div class="wrap-login100-form-btn">
+                    <div class="login100-form-bgbtn"></div>
+                    <button class="login100-form-btn" name="btnSubmit" value="회원가입" type="submit">
+                        회원가입
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

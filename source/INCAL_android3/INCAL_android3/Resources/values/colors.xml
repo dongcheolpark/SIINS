@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<resources>
+  <color name="my_dark_blue">#2966c1</color>
+  <color name="ultra_violate">#5F4B8B</color>
+  <color name="my_blue">#3498DB</color>
+  <color name="my_green">#77D065</color>
+  <color name="my_purple">#B455B6</color>
+  <color name="my_gray">#738182</color>
+  <color name="primary">#2196F3</color>
+  <color name="primaryDark">#1976D2</color>
+  <color name="accent">#FFC107</color>
+  <color name="window_background">#F5F5F5</color>
+  <color name="splash_background">#2966c1</color>
+</resources>
