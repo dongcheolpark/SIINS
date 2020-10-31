@@ -1,4 +1,4 @@
-﻿using MvcMovie.Models;
+﻿using SiinsWeb.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Web.Http.OData.Query;
 
-namespace testweb2.Models
+namespace SiinsWeb.Models
 {
     public class Category
     {

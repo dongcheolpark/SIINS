@@ -1,11 +1,11 @@
-﻿using MvcMovie.Models;
+﻿using SiinsWeb.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using testweb2.Controllers;
+using SiinsWeb.Controllers;
 
-namespace testweb2.Models
+namespace SiinsWeb.Models
 {
     public class Admin
     {

@@ -1,10 +1,10 @@
-﻿using MvcMovie.Models;
+﻿using SiinsWeb.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace testweb2.Classes
+namespace SiinsWeb.Classes
 {
     public class HomeworkDetail
     {

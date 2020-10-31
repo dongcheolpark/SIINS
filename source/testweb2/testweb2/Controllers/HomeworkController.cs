@@ -8,13 +8,13 @@ using System.Net;
 using System.Net.Sockets;
 using System.Web;
 using System.Web.Mvc;
-using MvcMovie.Models;
-using testweb2.Models;
-using testweb2.Func;
-using testweb2.Classes;
+using SiinsWeb.Models;
+using SiinsWeb.Models;
+using SiinsWeb.Func;
+using SiinsWeb.Classes;
 using Newtonsoft.Json.Linq;
 
-namespace testweb2.Controllers
+namespace SiinsWeb.Controllers
 {
     public class HomeworkController : Controller
     {

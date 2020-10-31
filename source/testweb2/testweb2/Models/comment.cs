@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Web.Mvc;
 
-namespace MvcMovie.Models
+namespace SiinsWeb.Models
 {
     public class Comment
     {

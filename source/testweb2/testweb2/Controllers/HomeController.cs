@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using testweb2.Func;
+using SiinsWeb.Func;
 
-namespace testweb2.Controllers
+namespace SiinsWeb.Controllers
 {
     public class HomeController : Controller
     {

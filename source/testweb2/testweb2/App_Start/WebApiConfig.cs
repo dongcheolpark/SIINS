@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
-namespace testweb2
+namespace SiinsWeb
 {
     public static class WebApiConfig
     {

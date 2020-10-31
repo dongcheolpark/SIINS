@@ -1,4 +1,4 @@
-﻿namespace testweb2.Controllers
+﻿namespace SiinsWeb.Controllers
 {
     internal class CategoryDBContext
     {

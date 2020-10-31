@@ -1,4 +1,4 @@
-﻿namespace testweb2.Migrations
+﻿namespace SiinsWeb.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;

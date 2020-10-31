@@ -6,9 +6,9 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using MvcMovie.Models;
+using SiinsWeb.Models;
 
-namespace testweb2.Controllers
+namespace SiinsWeb.Controllers
 {
     public class CommentsController : Controller
     {

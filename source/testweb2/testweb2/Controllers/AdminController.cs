@@ -1,4 +1,4 @@
-﻿using MvcMovie.Models;
+﻿using SiinsWeb.Models;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -7,10 +7,10 @@ using System.EnterpriseServices;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using testweb2.Func;
-using testweb2.Models;
+using SiinsWeb.Func;
+using SiinsWeb.Models;
 
-namespace testweb2.Controllers
+namespace SiinsWeb.Controllers
 {
     public class AdminController : Controller
     {

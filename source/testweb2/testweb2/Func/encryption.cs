@@ -2,7 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace testweb2
+namespace SiinsWeb
 {
     public class Encryption
     {

@@ -5,7 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace testweb2.Models
+namespace SiinsWeb.Models
 {
     public class VotesInfo
     {
@@ -40,7 +40,7 @@ namespace testweb2.Models
         public DbSet<VotesInfo> VotesInfos { get; set; }
         public DbSet<VotesData> VotesDatas { get; set; }
 
-        public DbSet<testweb2.Models.VoteRes> VoteRes { get; set; }
+        public DbSet<SiinsWeb.Models.VoteRes> VoteRes { get; set; }
     }
 
     public class VoteResDBContext : DbContext

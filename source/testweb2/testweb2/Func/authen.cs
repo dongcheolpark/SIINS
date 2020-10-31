@@ -1,8 +1,8 @@
 ﻿using System;
-using testweb2.Models;
+using SiinsWeb.Models;
 
 
-namespace testweb2.Func
+namespace SiinsWeb.Func
 {
     public static class Authen
     {

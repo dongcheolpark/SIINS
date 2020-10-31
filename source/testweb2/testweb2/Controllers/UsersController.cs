@@ -1,15 +1,15 @@
-﻿using MvcMovie.Models;
+﻿using SiinsWeb.Models;
 using System;
 using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Newtonsoft.Json.Linq;
-using testweb2.Models;
+using SiinsWeb.Models;
 using System.IO;
 using System.Text;
 
-namespace testweb2.Controllers
+namespace SiinsWeb.Controllers
 {
     public class UsersController : Controller
     {

@@ -5,7 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace MvcMovie.Models
+namespace SiinsWeb.Models
 {
     public class Image
     {

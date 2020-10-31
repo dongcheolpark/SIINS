@@ -1,18 +1,18 @@
-﻿namespace testweb2.Migrations
+﻿namespace SiinsWeb.Migrations
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<MvcMovie.Models.NoteClassDBContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<SiinsWeb.Models.NoteClassDBContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(MvcMovie.Models.NoteClassDBContext context)
+        protected override void Seed(SiinsWeb.Models.NoteClassDBContext context)
         {
             //  This method will be called after migrating to the latest version.
 

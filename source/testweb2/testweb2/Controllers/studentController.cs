@@ -7,10 +7,10 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using testweb2.Func;
-using testweb2.Models;
+using SiinsWeb.Func;
+using SiinsWeb.Models;
 
-namespace testweb2.Controllers
+namespace SiinsWeb.Controllers
 {
     public class studentController : Controller
     {

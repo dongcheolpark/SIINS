@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2000
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30406.217
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "testweb2", "testweb2\testweb2.csproj", "{021738E6-AA64-4744-8B86-3B354B535EBA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIINS_Web", "testweb2\SIINS_Web.csproj", "{021738E6-AA64-4744-8B86-3B354B535EBA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

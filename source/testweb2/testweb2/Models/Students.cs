@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace testweb2.Models
+namespace SiinsWeb.Models
 {
     public class StudentsModel
     {

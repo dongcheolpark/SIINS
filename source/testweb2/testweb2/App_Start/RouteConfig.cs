@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace testweb2
+namespace SiinsWeb
 {
     public class RouteConfig
     {
