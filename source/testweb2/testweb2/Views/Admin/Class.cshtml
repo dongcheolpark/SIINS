@@ -1,0 +1,20 @@
+﻿@model testweb2.Models.Grade
+
+@{ 
+    ViewBag.Title = "Class";
+}
+<div class="page-all">
+    <div class="form-input">
+        
+        <form class="form-signin text-center" role="form" method="post" action="Class">
+            <h2>반 정보 수정</h2>
+
+            <div class="mt-10">
+                <input name="class1" placeholder="1학년" style="background:#c6c6c6" class="single-input" />
+                <input name="class2" placeholder="2학년" style="background:#e5e5e5" class="single-input" />
+                <input name="class3" placeholder="3학년" style="background:#c6c6c6" class="single-input" />
+            </div>
+            <input type="submit" class="genric-btn info circle" value="수정" />
+        </form>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+﻿@model testweb2.Classes.HomeworkDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+<div class="page-all">
+    <div class="form-input">
+
+
+        <div>
+            <p>
+                <h2>@Model.Homework.Title</h2>
+            </p>
+            <span>@Model.Homework.T_Name | </span><span>@Model.Homework.Subject | </span><span>@Model.Homework.Date.ToShortDateString() | </span>
+        </div>
+        <hr />
+        <div class="div-contents">
+            @Html.Raw(Model.Homework.Contents)
+        </div>
+        <p>
+            @if (Model.Homework.T_Name == Session["UserName"].ToString())
+            {
+                <a class="btn btn-primary" href="~/Homework/Delete/@Model.Homework.NoteNo">제거</a>
+            }
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Homework.NoteNo }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+        <hr />
+        <p class="text-left">
+            <span class="badge badge-danger">@Model.Homework.NoteGroup</span>
+            @foreach (var item in Model.Catname)
+            {
+                <span class="badge badge-primary">
+                    @item
+                </span>
+
+            }
+        </p>
+
+
+
+        @Html.Action("comment", "Comments", new { NoteNo = Model.Homework.NoteNo })
+    </div>
+</div>
+

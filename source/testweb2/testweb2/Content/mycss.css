@@ -1,0 +1,21 @@
+﻿.item-size {
+    color: #000;
+    font-size: 20px;
+    padding: .6rem .7rem .5rem;
+    display:block;
+}
+.a-button {
+    bottom: 30px;
+    right: 70px;
+    display: inline-block;
+    vertical-align: middle;
+    position: fixed;
+}
+
+
+.fixedbutton {
+    bottom : 30px;
+    right : 70px;
+    position :fixed;
+}
+

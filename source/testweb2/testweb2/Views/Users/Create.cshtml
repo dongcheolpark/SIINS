@@ -1,0 +1,179 @@
+﻿@model testweb2.Models.GradeData
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+<div class="page-all">
+    <div class="form-input-1000">
+        <form id="form1" name="form1" class="form-signin text-center" role="form" method="post" action="Create" onsubmit="return checkform()">
+            <h2 class="form-text">회원가입</h2>
+
+            <div class="input-group mb-3" id="divId">
+                <input type="text" class="form-control onlyAlphabetAndNumber" check_result="fail" id="UserId" name="UserId" data-rule-required="true" placeholder="아이디" maxlength="30">
+                <button type="button" class="form-control btn btn-danger" id="overlap_button" onclick="id_overlap_check()">중복검사</button>
+                <img id="id_check_sucess" style="display: none;">
+            </div>
+
+            <div class="input-group mb-3" id="divPassword">
+                <input type="password" class="form-control" id="UserPassword" name="UserPassword" data-rule-required="true" placeholder="패스워드" maxlength="30">
+            </div>
+
+            <div class="input-group mb-3" id="divName">
+                <input type="text" class="form-control onlyHangul" id="UserName" name="UserName" data-rule-required="true" placeholder="닉네임" maxlength="15">
+            </div>
+
+
+            <div class="input-group mb-3 div-border">
+                <div class="mb-3" style="width:100%;">
+                    학년 반
+                    <div class="mb-2">
+                        <hr />
+                        <div class="mb-1" style="border:1px solid #000000;">
+                            <h4>1학년</h4>
+                            @for (int i = 1; i <= Model.grade.Class1; i++)
+                            {
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="radio" value="@string.Format("1"+"{0:D2}",i)">
+                                    <label class="form-check-label" for="inlineCheckbox1">1학년 @i 반 </label>
+                                </div>
+                            }
+                            <h4>2학년</h4>
+                            @for (int i = 1; i <= Model.grade.Class2; i++)
+                            {
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="radio" value="@string.Format("2"+"{0:D2}",i)">
+                                    <label class="form-check-label" for="inlineCheckbox1">2학년 @i 반 </label>
+                                </div>
+                            }
+                            <h4>3학년</h4>
+                            @for (int i = 1; i <= Model.grade.Class3; i++)
+                            {
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="radio" value="@string.Format("3"+"{0:D2}",i)">
+                                    <label class="form-check-label" for="inlineCheckbox1">3학년 @i 반 </label>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3" style="width:100%;">
+                    과목
+                    <div class="mb-2">
+                        <hr />
+                        @foreach (var item in Model.category)
+                        {
+                            if (string.Compare(item.CatAttribute, "과목") == 0)
+                            {
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="Checkbox[]" value="@item.CatId">
+                                    <label class="form-check-label" for="inlineCheckbox1">@item.CatName</label>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="mb-3" style="width:100%;">
+                    동아리
+                    <div class="mb-2">
+                        <hr />
+                        @foreach (var item in Model.category)
+                        {
+                            if (string.Compare(item.CatAttribute, "동아리") == 0)
+                            {
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="Checkbox[]" value="@item.CatId">
+                                    <label class="form-check-label" for="inlineCheckbox1">@item.CatName</label>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="mb-3" style="width:100%;">
+                    기타
+                    <div class="mb-2">
+                        <hr />
+                        @foreach (var item in Model.category)
+                        {
+                            if (string.Compare(item.CatAttribute, "기타") == 0)
+                            {
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="Checkbox[]" value="@item.CatId">
+                                    <label class="form-check-label" for="inlineCheckbox1">@item.CatName</label>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-login100-form-btn">
+                <div class="wrap-login100-form-btn">
+                    <div class="login100-form-bgbtn"></div>
+                    <button class="login100-form-btn" name="btnSubmit" value="회원가입">
+                        회원가입
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script>
+
+    function checkform() {
+        var userId = document.getElementById('UserId').value;
+        // 아이디 입력 유무 체크
+        if (userId == '') {
+            alert("아이디를 입력하세요");
+            return false; // 아이디 입력이 안되어 있다면 submint 이벤트를 중지
+        }
+        var userPw = document.getElementById('UserPassword').value;
+        // 암호 입력 유무 체크
+        if (userPw == '') {
+            alert("비밀번호를 입력하세요");
+            return false;
+        }
+        var idcheck = $("#UserId").attr("check_result");
+        if (idcheck == 'fail') {
+            alert("아이디 중복검사를 해주세요.")
+            return false;
+        }
+    }
+    function id_overlap_check() {
+
+        $('#UserId').change(function () {
+            $('#id_check_sucess').hide();
+            $('#overlap_button').show();
+            $('#UserId').attr("check_result", "fail");
+        })
+
+
+        if ($('#UserId').val() == '') {
+            alert('아이디를 입력해주세요.')
+            return;
+        }
+
+        id_overlap_input = document.getElementById('UserId').value;
+
+        $.ajax({
+            url: "Overlap?userid=" + id_overlap_input,
+            success: function (data) {
+                if (data == 0) {
+                    alert("이미 존재하는 아이디 입니다.");
+                    id_overlap_input.focus();
+                    return;
+                } else {
+                    alert("사용가능한 아이디 입니다.");
+                    $('#UserId').attr("check_result", "success");
+                    $('#id_check_sucess').show();
+                    $('#overlap_button').hide();
+                    return;
+                }
+            }
+        });
+    }
+
+</script>
