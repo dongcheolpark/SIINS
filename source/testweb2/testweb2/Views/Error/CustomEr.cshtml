@@ -1,0 +1,13 @@
+﻿@model string
+@{
+    ViewBag.Title = "Error";
+}
+<div class="page-all">
+    <div class="form-input" style="width:500px;text-align:center">
+        <h2>오류</h2>
+        <h4>@Model</h4>
+
+        <input type="button" class="btn btn-danger" value="뒤로가기" onClick="history.go(-1)">
+
+    </div>
+</div>

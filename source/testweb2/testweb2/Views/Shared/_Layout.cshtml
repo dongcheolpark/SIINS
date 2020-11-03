@@ -71,7 +71,7 @@
                             </div>
                         </div>
                         <div class="col-xl-8 col-lg-8">
-                            <div class="main-menu  d-none d-lg-block">
+                            <div class="main-menu GongGothic d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
                                         @try
@@ -79,11 +79,11 @@
                                             if (Session["UserName"] != null && (Session["UserClass"].ToString() == "Teacher" || Session["UserClass"].ToString() == "Admin"))
                                             {
                                                 <li>
-                                                    <a href="#">선생님 페이지 <i class="ti-angle-down"></i></a>
+                                                    <a class="kotra" href="#">선생님 페이지 <i class="ti-angle-down"></i></a>
                                                     <ul class="submenu">
-                                                        <li><a href="/homework/create">과제추가</a></li>
-                                                        <li><a href="/Teacher/AddCat">카테고리추가</a></li>
-                                                        <li><a href="/Teacher/ClassNoti">교실알림전송</a></li>
+                                                        <li><a class="kotra" href="/homework/create">과제추가</a></li>
+                                                        <li><a class="kotra" href="/Teacher/AddCat">카테고리추가</a></li>
+                                                        <li><a class="kotra" href="/Teacher/ClassNoti">교실알림전송</a></li>
                                                     </ul>
                                                 </li>
                                             }
@@ -91,29 +91,29 @@
                                             if (Session["UserName"] != null && (Session["UserClass"].ToString() == "Student" || Session["UserClass"].ToString() == "Admin"))
                                             {
                                                 <li>
-                                                    <a href="#">과제열람페이지 <i class="ti-angle-down"></i></a>
+                                                    <a class="kotra" href="#">과제열람페이지 <i class="ti-angle-down"></i></a>
                                                     <ul class="submenu">
-                                                        <li><a href="/Homework/index">과제확인하기</a></li>
-                                                        <li><a href="/Student/ClassNotiList">교실알림내역</a></li>
+                                                        <li><a class="kotra" href="/Homework/index">과제확인하기</a></li>
+                                                        <li><a class="kotra" href="/Student/ClassNotiList">교실알림내역</a></li>
                                                     </ul>
                                                 </li>
                                             }
                                             if (Session["UserName"] != null && (Session["UserClass"].ToString() == "Student" || Session["UserClass"].ToString() == "Admin"))
                                             {
-                                                <li><a href="/Student/Settings">개인정보수정</a></li>
+                                                <li><a class="kotra" href="/Student/Settings">개인정보수정</a></li>
                                             }
                                             if (Session["UserName"] != null && Session["UserClass"].ToString() == "Admin")
                                             {
 
-                                                <li><a href="/admin">관리자페이지</a></li>
+                                                <li><a class="kotra" href="/admin">관리자페이지</a></li>
                                             }
                                             if (Session["UserName"] != null)
                                             {
-                                                <li><a id="login" style="display:none" href="javascript:logout()">로그아웃</a></li>
+                                                <li><a class="kotra" id="login" style="display:none" href="javascript:logout()">로그아웃</a></li>
                                             }
                                             else
                                             {
-                                                <li><a id="login" style="display:none" href="/users/login">로그인</a></li>
+                                                <li><a class="kotra" id="login" style="display:none" href="/users/login">로그인</a></li>
                                             }
 
                                         }
@@ -144,7 +144,7 @@
                             else
                             {
                                 <div class="buy_ticket">
-                                    <a href="/users/login" class="boxed-btn-white">로그인</a>
+                                    <a href="/users/login" class="boxed-btn-white">Login</a>
                                 </div>
                             }
                         </div>

@@ -59,7 +59,7 @@ namespace testweb2.Controllers
                         }
                         if (check) break;
                     }
-                    if (!check) continue;
+                    if (!check && !Authen.Certification(Session["UserClass"].ToString(), Authen.UserClass.Teacher)) continue;
                     check = false;
                     foreach (var item2 in userlist)
                     {
@@ -73,7 +73,7 @@ namespace testweb2.Controllers
                         }
                         if (check) break;
                     }
-                    if (check)
+                    if (check || Authen.Certification(Session["UserClass"].ToString(), Authen.UserClass.Teacher))
                     {
                         result.Add(item);
                     }
@@ -223,7 +223,7 @@ namespace testweb2.Controllers
         }
 
         // GET: Homework/Delete/5
-        public ActionResult Delete(int? id)
+        /*public ActionResult Delete(int? id)
         {
             try
             {
@@ -247,7 +247,7 @@ namespace testweb2.Controllers
             {
                 return RedirectToAction("LoginEr", "Error");
             }
-        }
+        }*/
 
         [HttpPost]
         public string Image(HttpPostedFileBase file)
@@ -266,9 +266,7 @@ namespace testweb2.Controllers
         }
 
         // POST: Homework/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult Delete(int id)
         {
             try
             {

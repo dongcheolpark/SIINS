@@ -5,14 +5,14 @@
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<MvcMovie.Models.NoteClassDBContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<testweb2.Models.UserDBContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(MvcMovie.Models.NoteClassDBContext context)
+        protected override void Seed(testweb2.Models.UserDBContext context)
         {
             //  This method will be called after migrating to the latest version.
 
