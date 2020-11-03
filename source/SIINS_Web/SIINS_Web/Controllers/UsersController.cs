@@ -22,7 +22,7 @@ namespace SiinsWeb.Controllers
         {
             string text1 = System.IO.File.ReadAllText(Server.MapPath("~/ClassData.json"));
             JObject text = JObject.Parse(text1);
-
+            
             Grade a = new Grade(
                 (int)text["Class1"],
                 (int)text["Class2"],
@@ -33,38 +33,35 @@ namespace SiinsWeb.Controllers
 
         // POST: Users/Create
         [HttpPost]
-        public ActionResult Create([Bind(Include = "UserId,UserPassword,UserName")] User user, string[] checkbox, string radio)
+        public ActionResult Create([Bind(Include = "UserNo,UserId,UserPassword,UserName")] User user, string[] checkbox,string radio)
         {
-            try
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
+                var id = from a in db.Users.ToList()
+                         orderby a.UserNo
+                         select a;
+                user.UserNo = id.Last().UserNo + 2;
+                user.UserClass = "Student";
+                user.UserPassword = Encryption.Encode(user.UserPassword);
+                user.UserGroup = int.Parse(radio);
+
+                for (int i = 0; i < checkbox.Length; i++)
                 {
-                    user.UserClass = "Student";
-                    user.UserPassword = Encryption.Encode(user.UserPassword);
-                    user.UserGroup = int.Parse(radio);
-
-                    for (int i = 0; i < checkbox.Length; i++)
-                    {
-                        var cuser = new SelectedCategory() { CatUSelect = int.Parse(checkbox[i]), CatUName = user.UserNo };
-                        db2.Categories.Add(cuser);
-                    }
-
-                    db.Users.Add(user);
-                    db2.SaveChanges();
-                    db.SaveChanges();
+                    var cuser = new SelectedCategory() { CatUSelect = int.Parse(checkbox[i]), CatUName = user.UserNo };
+                    db2.Categories.Add(cuser);
                 }
 
-                Session["UserClass"] = user.UserClass;
-                Session["UserName"] = user.UserName;
-                Session["UserPw"] = user.UserPassword;
-                Session["UserGr"] = user.UserGroup;
-                return Redirect("~/home");
+                db.Users.Add(user);
+                db2.SaveChanges();
+                db.SaveChanges();
+            }
 
-            }
-            catch (Exception E)
-            {
-                return RedirectPermanent("~/Error/CustomEr?text=ErrorOccur");
-            }
+            Session["UserClass"] = user.UserClass;
+            Session["UserName"] = user.UserName;
+            Session["UserNo"] = user.UserNo;
+            Session["UserPw"] = user.UserPassword;
+            Session["UserGr"] = user.UserGroup;
+            return Redirect("~/home");
         }
 
         public ActionResult Login()
@@ -79,65 +76,53 @@ namespace SiinsWeb.Controllers
         [HttpPost]
         public ActionResult Login([Bind(Include = "UserId,UserPassword")] User user, string btnSubmit)
         {
-            try
+            switch (btnSubmit)
             {
-                switch (btnSubmit)
-                {
-                    case "login":
+                case "login":
 
-                        User result = null;
-                        if (ModelState.IsValid)
+                    User result = null;
+                    if (ModelState.IsValid)
+                    {
+                        var pw = user.UserPassword;
+                        pw = Encryption.Encode(pw);
+                        var iscorrect = from a in db.Users.ToList()
+                                        where a.UserId == user.UserId
+                                        where a.UserPassword == pw
+                                        select a;
+                        foreach (var i in iscorrect)
                         {
-                            var pw = user.UserPassword;
-                            pw = Encryption.Encode(pw);
-                            var iscorrect = from a in db.Users.ToList()
-                                            where a.UserId == user.UserId
-                                            where a.UserPassword == pw
-                                            select a;
-                            foreach (var i in iscorrect)
-                            {
-                                result = i;
-                            }
-                            if (result == null)
-                            {
-                                return View();
-                            }
-
-
+                            result = i;
                         }
-                        Session["UserClass"] = result.UserClass;
-                        Session["UserName"] = result.UserName;
-                        Session["UserNo"] = result.UserNo;
-                        Session["UserPw"] = result.UserPassword;
-                        Session["UserGr"] = result.UserGroup;
-                        return Redirect("~/home");
+                        if (result == null)
+                        {
+                            return View();
+                        }
 
-                    case "logout":
-                        Session["UserClass"] = null;
-                        Session["UserName"] = null;
-                        Session["UserId"] = null;
-                        Session["UserPw"] = null;
-                        Session["UserGr"] = null;
-                        return Redirect("~/home");
 
-                    default:
-                        return View();
-                }
-            }
-            catch (Exception E)
-            {
-                return Redirect("~/Error/CustomEr?text=오류가 발생했습니다. 다시 입력해 주세요.");
+                    }
+                    Session["UserClass"] = result.UserClass;
+                    Session["UserName"] = result.UserName;
+                    Session["UserNo"] = result.UserNo;
+                    Session["UserPw"] = result.UserPassword;
+                    Session["UserGr"] = result.UserGroup;
+                    return Redirect("~/home");
+
+                case "logout":
+                    Session["UserClass"] = null;
+                    Session["UserName"] = null;
+                    Session["UserId"] = null;
+                    Session["UserPw"] = null;
+                    Session["UserGr"] = null;
+                    return Redirect("~/home");
+
+                default:
+                    return View();
             }
         }
 
-        [HttpGet]
-        public int Overlap(string userid)
+        public ActionResult Error()
         {
-            var a = from b in db.Users.ToList()
-                    where b.UserId == userid
-                    select b;
-            if (a.Count() == 0) return 1;
-            else return 0;
+            return View();
         }
 
         protected override void Dispose(bool disposing)

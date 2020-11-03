@@ -59,7 +59,7 @@ namespace SiinsWeb.Controllers
                         }
                         if (check) break;
                     }
-                    if (!check && !Authen.Certification(Session["UserClass"].ToString(), Authen.UserClass.Teacher)) continue;
+                    if (!check) continue;
                     check = false;
                     foreach (var item2 in userlist)
                     {
@@ -73,7 +73,7 @@ namespace SiinsWeb.Controllers
                         }
                         if (check) break;
                     }
-                    if (check || Authen.Certification(Session["UserClass"].ToString(), Authen.UserClass.Teacher))
+                    if (check)
                     {
                         result.Add(item);
                     }
@@ -223,7 +223,7 @@ namespace SiinsWeb.Controllers
         }
 
         // GET: Homework/Delete/5
-        /*public ActionResult Delete(int? id)
+        public ActionResult Delete(int? id)
         {
             try
             {
@@ -247,7 +247,7 @@ namespace SiinsWeb.Controllers
             {
                 return RedirectToAction("LoginEr", "Error");
             }
-        }*/
+        }
 
         [HttpPost]
         public string Image(HttpPostedFileBase file)
@@ -266,7 +266,9 @@ namespace SiinsWeb.Controllers
         }
 
         // POST: Homework/Delete/5
-        public ActionResult Delete(int id)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
         {
             try
             {

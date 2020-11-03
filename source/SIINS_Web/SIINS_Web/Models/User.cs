@@ -10,7 +10,6 @@ namespace SiinsWeb.Models
 {
     public class User
     {   
-        [Key]
         public int UserNo { get; set; }
         public string UserName { get; set; }
         public string UserClass { get; set; }

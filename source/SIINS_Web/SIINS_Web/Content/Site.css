@@ -15,53 +15,6 @@
     white-space: normal;
 }
 
-.imcre {
-    font-family:ImcreSoojin !important;
-}
-
-@font-face {
-    font-family: 'ImcreSoojin';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.3/ImcreSoojin.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-.GongGothic {
-    font-family: GongGothicMedium !important;
-}
-
-.kotra {
-    font-family: KOTRA_BOLD-Bold !important;
-}
-
-.recipe{
-    font-family:Recipekorea;
-}
-@font-face {
-    font-family: 'Recipekorea';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/Recipekorea.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'GongGothicMedium';
-    src: url('https://github.com/projectnoonnu/noonfonts_20-10/blob/main/GongGothicMedium.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'paybooc-Medium';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/paybooc-Medium.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-.paybooc {
-    font-family:paybooc-Medium;
-}
-
 .form-input {
     margin:0 auto;
     width: 1500px;
@@ -69,16 +22,6 @@
     border-radius: 10px;
     overflow: hidden;
     padding:30px;
-    font-family: KOTRA_BOLD-Bold;
-}
-.form-input-1000 {
-    margin: 0 auto;
-    width: 1000px;
-    background: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    padding: 30px;
-    font-family: KOTRA_BOLD-Bold;
 }
 
 .form-input-500 {
@@ -88,14 +31,6 @@
     border-radius: 10px;
     overflow: hidden;
     padding: 30px;
-    font-family: KOTRA_BOLD-Bold
-}
-@media (max-width: 1000px) {
-    .form-input-1000 {
-        width: auto;
-        padding-left: 15px;
-        padding-right: 15px;
-    }
 }
 
 @media (max-width: 1500px) {
@@ -156,17 +91,11 @@ p {
     padding: 10px;
 }
 /* Set width on the form input elements since they're 100% wide by default */
-@font-face {
-    font-family: 'KOTRA_BOLD-Bold';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.1/KOTRA_BOLD-Bold.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
 
 .page-all {
     background: -webkit-radial-gradient(rgb(143, 22, 237), rgb(84, 20, 90));
-    padding: 70px 15px 70px 15px;
-    font-family:KOTRA_BOLD-Bold;
+    padding : 70px 15px 70px 15px;
+    
 }
 
 ul.icons {

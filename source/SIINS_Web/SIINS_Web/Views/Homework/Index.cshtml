@@ -42,7 +42,7 @@
                             @Html.DisplayFor(modelItem => item.T_Name)
                         </td>
                         <td scope="col">
-                            <a class="text-body kotra" href="/homework/details/@item.NoteNo">@item.Title</a>
+                            <a class="text-body" href="/homework/details/@item.NoteNo">@item.Title</a>
                         </td>
                         <td scope="col">
                             @item.Date.ToShortDateString()
@@ -67,12 +67,12 @@
             </thead>
         </table>
         <div class="mobile" style="border:1px solid #808080">
-            <ul class="list-detailv paybooc" style="margin-bottom:0rem">
+            <ul class="list-detailv" style="margin-bottom:0rem">
                 <hr style="margin:0px" />
                 @foreach (var item in Model)
                 {
                     <li style="margin-left:10px">
-                        <a href="/homework/details/@item.NoteNo" class="list-detail-div paybooc">
+                        <a href="/homework/details/@item.NoteNo" class="list-detail-div">
                             <span class="subject">@item.Title</span>
                             <ul class="list-info">
                                 <li>@item.Subject</li>
