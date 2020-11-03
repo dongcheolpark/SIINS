@@ -1,0 +1,43 @@
+[33m1543595[m[33m ([m[1;36mHEAD -> [m[1;32mchangefont[m[33m, [m[1;31morigin/master[m[33m, [m[1;32mtest[m[33m)[m HEAD@{0}: pull origin master: Fast-forward
+[33m757df75[m[33m ([m[1;31morigin/changefont[m[33m, [m[1;32mtest2[m[33m)[m HEAD@{1}: checkout: moving from master to changefont
+[33m529894c[m[33m ([m[1;32mmaster[m[33m)[m HEAD@{2}: reset: moving to 529894c7ac239028d5c1fb8327e546124e11678e
+[33m529894c[m[33m ([m[1;32mmaster[m[33m)[m HEAD@{3}: commit: backup
+[33m1543595[m[33m ([m[1;36mHEAD -> [m[1;32mchangefont[m[33m, [m[1;31morigin/master[m[33m, [m[1;32mtest[m[33m)[m HEAD@{4}: checkout: moving from changefont to master
+[33m757df75[m[33m ([m[1;31morigin/changefont[m[33m, [m[1;32mtest2[m[33m)[m HEAD@{5}: checkout: moving from test to changefont
+[33m1543595[m[33m ([m[1;36mHEAD -> [m[1;32mchangefont[m[33m, [m[1;31morigin/master[m[33m, [m[1;32mtest[m[33m)[m HEAD@{6}: checkout: moving from master to test
+[33m1543595[m[33m ([m[1;36mHEAD -> [m[1;32mchangefont[m[33m, [m[1;31morigin/master[m[33m, [m[1;32mtest[m[33m)[m HEAD@{7}: checkout: moving from test2 to master
+[33m757df75[m[33m ([m[1;31morigin/changefont[m[33m, [m[1;32mtest2[m[33m)[m HEAD@{8}: checkout: moving from changefont to test2
+[33m757df75[m[33m ([m[1;31morigin/changefont[m[33m, [m[1;32mtest2[m[33m)[m HEAD@{9}: checkout: moving from master to changefont
+[33m1543595[m[33m ([m[1;36mHEAD -> [m[1;32mchangefont[m[33m, [m[1;31morigin/master[m[33m, [m[1;32mtest[m[33m)[m HEAD@{10}: checkout: moving from changefont to master
+[33m757df75[m[33m ([m[1;31morigin/changefont[m[33m, [m[1;32mtest2[m[33m)[m HEAD@{11}: reset: moving to 757df75
+[33m1543595[m[33m ([m[1;36mHEAD -> [m[1;32mchangefont[m[33m, [m[1;31morigin/master[m[33m, [m[1;32mtest[m[33m)[m HEAD@{12}: merge 15435953ff968d08dfc96cb635308d5253b18253: Fast-forward
+[33m757df75[m[33m ([m[1;31morigin/changefont[m[33m, [m[1;32mtest2[m[33m)[m HEAD@{13}: checkout: moving from master to changefont
+[33m1543595[m[33m ([m[1;36mHEAD -> [m[1;32mchangefont[m[33m, [m[1;31morigin/master[m[33m, [m[1;32mtest[m[33m)[m HEAD@{14}: checkout: moving from changefont to master
+[33m757df75[m[33m ([m[1;31morigin/changefont[m[33m, [m[1;32mtest2[m[33m)[m HEAD@{15}: reset: moving to 757df75
+[33m1543595[m[33m ([m[1;36mHEAD -> [m[1;32mchangefont[m[33m, [m[1;31morigin/master[m[33m, [m[1;32mtest[m[33m)[m HEAD@{16}: merge master: Fast-forward
+[33m757df75[m[33m ([m[1;31morigin/changefont[m[33m, [m[1;32mtest2[m[33m)[m HEAD@{17}: checkout: moving from master to changefont
+[33m1543595[m[33m ([m[1;36mHEAD -> [m[1;32mchangefont[m[33m, [m[1;31morigin/master[m[33m, [m[1;32mtest[m[33m)[m HEAD@{18}: checkout: moving from changefont to master
+[33m757df75[m[33m ([m[1;31morigin/changefont[m[33m, [m[1;32mtest2[m[33m)[m HEAD@{19}: checkout: moving from master to changefont
+[33m1543595[m[33m ([m[1;36mHEAD -> [m[1;32mchangefont[m[33m, [m[1;31morigin/master[m[33m, [m[1;32mtest[m[33m)[m HEAD@{20}: pull origin master: Fast-forward
+[33m757df75[m[33m ([m[1;31morigin/changefont[m[33m, [m[1;32mtest2[m[33m)[m HEAD@{21}: checkout: moving from master to master
+[33m757df75[m[33m ([m[1;31morigin/changefont[m[33m, [m[1;32mtest2[m[33m)[m HEAD@{22}: checkout: moving from changefont to master
+[33m757df75[m[33m ([m[1;31morigin/changefont[m[33m, [m[1;32mtest2[m[33m)[m HEAD@{23}: reset: moving to 757df75
+[33m1543595[m[33m ([m[1;36mHEAD -> [m[1;32mchangefont[m[33m, [m[1;31morigin/master[m[33m, [m[1;32mtest[m[33m)[m HEAD@{24}: checkout: moving from changefont to changefont
+[33m1543595[m[33m ([m[1;36mHEAD -> [m[1;32mchangefont[m[33m, [m[1;31morigin/master[m[33m, [m[1;32mtest[m[33m)[m HEAD@{25}: pull origin master: Fast-forward
+[33m757df75[m[33m ([m[1;31morigin/changefont[m[33m, [m[1;32mtest2[m[33m)[m HEAD@{26}: checkout: moving from master to changefont
+[33m757df75[m[33m ([m[1;31morigin/changefont[m[33m, [m[1;32mtest2[m[33m)[m HEAD@{27}: checkout: moving from changefont to master
+[33m757df75[m[33m ([m[1;31morigin/changefont[m[33m, [m[1;32mtest2[m[33m)[m HEAD@{28}: checkout: moving from master to changefont
+[33m757df75[m[33m ([m[1;31morigin/changefont[m[33m, [m[1;32mtest2[m[33m)[m HEAD@{29}: reset: moving to 757df75
+[33m757df75[m[33m ([m[1;31morigin/changefont[m[33m, [m[1;32mtest2[m[33m)[m HEAD@{30}: reset: moving to 757df75
+[33m757df75[m[33m ([m[1;31morigin/changefont[m[33m, [m[1;32mtest2[m[33m)[m HEAD@{31}: reset: moving to 757df75
+[33m1543595[m[33m ([m[1;36mHEAD -> [m[1;32mchangefont[m[33m, [m[1;31morigin/master[m[33m, [m[1;32mtest[m[33m)[m HEAD@{32}: pull origin master: Fast-forward
+[33m757df75[m[33m ([m[1;31morigin/changefont[m[33m, [m[1;32mtest2[m[33m)[m HEAD@{33}: reset: moving to 757df75
+[33m1543595[m[33m ([m[1;36mHEAD -> [m[1;32mchangefont[m[33m, [m[1;31morigin/master[m[33m, [m[1;32mtest[m[33m)[m HEAD@{34}: commit (merge): 폰트변경
+[33m757df75[m[33m ([m[1;31morigin/changefont[m[33m, [m[1;32mtest2[m[33m)[m HEAD@{35}: commit: 폰트편경
+[33m3299e20[m HEAD@{36}: commit: go back
+[33m5ea1338[m HEAD@{37}: commit: go back
+[33me7433e5[m HEAD@{38}: reset: moving to e7433e5
+[33mab9e3a8[m HEAD@{39}: commit: rename
+[33mbbc5af6[m HEAD@{40}: commit: rename
+[33m2b12ed4[m HEAD@{41}: commit: readme
+[33me7433e5[m HEAD@{42}: commit (initial): master
