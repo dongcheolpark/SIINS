@@ -56,6 +56,7 @@ namespace testweb2.Controllers
 
                 Session["UserClass"] = user.UserClass;
                 Session["UserName"] = user.UserName;
+                Session["UserId"] = user.UserId;
                 Session["UserPw"] = user.UserPassword;
                 Session["UserGr"] = user.UserGroup;
                 return Redirect("~/home");

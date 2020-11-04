@@ -64,7 +64,7 @@
                     과목
                     <div class="mb-2">
                         <hr />
-                        @foreach (var item in Model.category)
+                        @foreach (var item in Model.category.OrderBy(b => b.CatName))
                         {
                             if (string.Compare(item.CatAttribute, "과목") == 0)
                             {
@@ -80,7 +80,7 @@
                     동아리
                     <div class="mb-2">
                         <hr />
-                        @foreach (var item in Model.category)
+                        @foreach (var item in Model.category.OrderBy(b => b.CatName))
                         {
                             if (string.Compare(item.CatAttribute, "동아리") == 0)
                             {
@@ -96,7 +96,7 @@
                     기타
                     <div class="mb-2">
                         <hr />
-                        @foreach (var item in Model.category)
+                        @foreach (var item in Model.category.OrderBy(b => b.CatName))
                         {
                             if (string.Compare(item.CatAttribute, "기타") == 0)
                             {
