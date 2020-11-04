@@ -23,7 +23,7 @@ namespace testweb2.Controllers
         private NoteCatDBContext db3 = new NoteCatDBContext(); //과제 카테고리 db
         private UserCategoriesDBcontext db4 = new UserCategoriesDBcontext(); //유저 카테고리 db
         private NoteClassDBContext db5 = new NoteClassDBContext();
-
+        private CommentDBContext db6 = new CommentDBContext();
         // GET: Homework
         public ActionResult Index()//과제확인 리스트
         {
@@ -36,7 +36,7 @@ namespace testweb2.Controllers
                 }
                 DelHomeworks();//유저가 리스트를 확인하면 시간이 지난 과제들을 삭제
                 var userlist = from a in db4.Categories.ToList()
-                               where a.CatUName == int.Parse(Session["UserNo"].ToString())
+                               where a.CatUNo == int.Parse(Session["UserNo"].ToString())
                                select a;//유저 
                 var list = from a in db.Homework.ToList()
                            orderby a.Date
@@ -81,7 +81,7 @@ namespace testweb2.Controllers
                 return View(result);
                 //return View(db.Homework.ToList());
             }
-            catch
+            catch(Exception E)
             {
                 return RedirectToAction("LoginEr", "Error");
             }
@@ -275,9 +275,7 @@ namespace testweb2.Controllers
                     return RedirectToAction("PermitionEr", "Error");
 
                 }
-                Homework homework = db.Homework.First(a => a.NoteNo == id);
-                db.Homework.Remove(homework);
-                db.SaveChanges();
+                Delnote(id);
                 return RedirectToAction("Index");
             }
             catch
@@ -302,10 +300,45 @@ namespace testweb2.Controllers
                        select a;
             foreach (var item in data)
             {
-                db.Homework.Remove(item);
+                Delnote(item.NoteNo);
             }
             db.SaveChanges();
             return;
+        }
+        void Delnote(int id)
+        {
+            var a = from item in db.Homework.ToList()
+                    where item.NoteNo == id
+                    select item;
+            var b = from item in db3.NoteCat.ToList()
+                    where item.NoteNo == id
+                    select item;
+            var c = from item in db5.NoteClass.ToList()
+                    where item.NoteId == id
+                    select item;
+            var d = from item in db6.Comment.ToList()
+                    where item.ParentNo == id
+                    select item;
+            foreach(var item in a)
+            {
+                db.Homework.Remove(item);
+            }
+            foreach (var item in b)
+            {
+                db3.NoteCat.Remove(item);
+            }
+            foreach (var item in c)
+            {
+                db5.NoteClass.Remove(item);
+            }
+            foreach (var item in d)
+            {
+                db6.Comment.Remove(item);
+            }
+            db.SaveChanges();
+            db3.SaveChanges();
+            db5.SaveChanges();
+            db6.SaveChanges();
         }
     }
 }

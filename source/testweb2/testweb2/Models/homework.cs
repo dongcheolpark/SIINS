@@ -53,5 +53,10 @@ namespace MvcMovie.Models
     public class NoteClassDBContext : DbContext
     {
         public DbSet<NoteClass> NoteClass { get; set; }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            Database.SetInitializer<NoteClassDBContext>(null);
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

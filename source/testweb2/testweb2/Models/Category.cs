@@ -20,7 +20,7 @@ namespace testweb2.Models
     {
         [Key]
         public int CatUId { get; set; }
-        public int CatUName { get; set; }
+        public int CatUNo { get; set; }
         public int CatUSelect { get; set; }
     }
 

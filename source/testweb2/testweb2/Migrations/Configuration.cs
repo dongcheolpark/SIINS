@@ -7,14 +7,14 @@
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<CommentDBContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<NoteClassDBContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(CommentDBContext context)
+        protected override void Seed(NoteClassDBContext context)
         {
             //  This method will be called after migrating to the latest version.
 

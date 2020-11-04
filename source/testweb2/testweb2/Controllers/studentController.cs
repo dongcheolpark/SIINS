@@ -46,7 +46,7 @@ namespace testweb2.Controllers
                 {
                     category = db2.Category.ToList(),
                     userCategory = from a in db.Categories.ToList()
-                                   where a.CatUName == int.Parse(Session["UserNo"].ToString())
+                                   where a.CatUNo == int.Parse(Session["UserNo"].ToString())
                                    select a,
                     grade = b
                 };
@@ -70,7 +70,7 @@ namespace testweb2.Controllers
                 }
 
                 var ab = from a in db.Categories.ToList()
-                         where a.CatUName == int.Parse(Session["UserNo"].ToString())
+                         where a.CatUNo == int.Parse(Session["UserNo"].ToString())
                          select a;
                 foreach (var item in ab)
                 {
@@ -79,7 +79,7 @@ namespace testweb2.Controllers
                 }
                 SelectedCategory abc = new SelectedCategory()
                 {
-                    CatUName = int.Parse(Session["UserNo"].ToString()),
+                    CatUNo = int.Parse(Session["UserNo"].ToString()),
 
                 };
                 for (int i = 0; i < checkbox.Length; i++)
@@ -114,6 +114,7 @@ namespace testweb2.Controllers
                     select b;
             return View(a);
         }
+
 
         /*[HttpPost]
         public ActionResult ChangeCat()

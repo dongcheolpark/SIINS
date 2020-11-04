@@ -37,34 +37,37 @@ namespace testweb2.Controllers
         {
             try
             {
+                User result;
                 if (ModelState.IsValid)
                 {
                     user.UserClass = "Student";
                     user.UserPassword = Encryption.Encode(user.UserPassword);
                     user.UserGroup = int.Parse(radio);
 
+                    db.Users.Add(user);
+                    db.SaveChanges();
+                    result = db.Users.Where(a => a.UserName == user.UserName).FirstOrDefault();
                     for (int i = 0; i < checkbox.Length; i++)
                     {
-                        var cuser = new SelectedCategory() { CatUSelect = int.Parse(checkbox[i]), CatUName = user.UserNo };
+                        var cuser = new SelectedCategory() { CatUSelect = int.Parse(checkbox[i]), CatUNo = result.UserNo };
                         db2.Categories.Add(cuser);
                     }
-
-                    db.Users.Add(user);
                     db2.SaveChanges();
-                    db.SaveChanges();
                 }
+                else return Redirect("~/home");
 
-                Session["UserClass"] = user.UserClass;
-                Session["UserName"] = user.UserName;
-                Session["UserId"] = user.UserId;
-                Session["UserPw"] = user.UserPassword;
-                Session["UserGr"] = user.UserGroup;
+                Session["UserClass"] = result.UserClass;
+                Session["UserId"] = result.UserId;
+                Session["UserName"] = result.UserName;
+                Session["UserNo"] = result.UserNo;
+                Session["UserPw"] = result.UserPassword;
+                Session["UserGr"] = result.UserGroup;
                 return Redirect("~/home");
 
             }
             catch (Exception E)
             {
-                return RedirectPermanent("~/Error/CustomEr?text=ErrorOccur");
+                return RedirectPermanent("~/Error/loginEr");
             }
         }
 
@@ -108,6 +111,7 @@ namespace testweb2.Controllers
                         }
                         Session["UserClass"] = result.UserClass;
                         Session["UserName"] = result.UserName;
+                        Session["UserId"] = result.UserId;
                         Session["UserNo"] = result.UserNo;
                         Session["UserPw"] = result.UserPassword;
                         Session["UserGr"] = result.UserGroup;
@@ -116,6 +120,7 @@ namespace testweb2.Controllers
                     case "logout":
                         Session["UserClass"] = null;
                         Session["UserName"] = null;
+                        Session["UserNo"] = null;
                         Session["UserId"] = null;
                         Session["UserPw"] = null;
                         Session["UserGr"] = null;
@@ -139,6 +144,47 @@ namespace testweb2.Controllers
                     select b;
             if (a.Count() == 0) return 1;
             else return 0;
+        }
+
+
+        public ActionResult Delete()
+        {
+            if (Session["UserName"] == null)
+            {
+                return RedirectToAction("LoginEr", "Error");
+            }
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int id)
+        {
+            if (ModelState.IsValid)
+            {
+                var a = from item in db.Users.ToList()
+                        where item.UserNo == id
+                        select item;
+                var b = from item in db2.Categories.ToList()
+                        where item.CatUNo == id
+                        select item;
+                foreach(var item in a)
+                {
+                    db.Users.Remove(item);
+                }
+                foreach (var item in b)
+                {
+                    db2.Categories.Remove(item);
+                }
+                db.SaveChanges();
+                db2.SaveChanges();
+                Session["UserClass"] = null;
+                Session["UserName"] = null;
+                Session["UserNo"] = null;
+                Session["UserId"] = null;
+                Session["UserPw"] = null;
+                Session["UserGr"] = null;
+            }
+            return Redirect("~/home");
         }
 
         protected override void Dispose(bool disposing)

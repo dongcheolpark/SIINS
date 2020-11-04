@@ -208,6 +208,10 @@
     <Compile Include="Migrations\202011031710135_co1.Designer.cs">
       <DependentUpon>202011031710135_co1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011040632134_noteclass.cs" />
+    <Compile Include="Migrations\202011040632134_noteclass.Designer.cs">
+      <DependentUpon>202011040632134_noteclass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Category.cs" />
@@ -575,6 +579,7 @@
     <Content Include="Views\Admin\ViewDB.cshtml" />
     <Content Include="Views\Admin\Class.cshtml" />
     <Content Include="Views\Error\CustomEr.cshtml" />
+    <Content Include="Views\Users\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -591,6 +596,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202011031710135_co1.resx">
       <DependentUpon>202011031710135_co1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011040632134_noteclass.resx">
+      <DependentUpon>202011040632134_noteclass.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

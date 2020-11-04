@@ -9,25 +9,56 @@
 
         <h2>카테고리 추가</h2>
         <div class="col-md-8">
-            <table class="table">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>id</th>
-                        <th>name</th>
-                        <th>attribute</th>
-                        <th></th>
-                    </tr>
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <th>@item.CatId</th>
-                            <th>@item.CatName</th>
-                            <th>@item.CatAttribute</th>
-                            <th><button class="btn btn-primary" onclick="deletecat(@item.CatId)">제거</button></th>
-                        </tr>
-                    }
-                </thead>
-            </table>
+            <div class="input-group mb-3 div-border">
+                <div class="mb-3" style="width:100%;">
+                    과목
+                    <div class="mb-2">
+                        <hr />
+                        @foreach (var item in Model.OrderBy(b => b.CatName))
+                        {
+                            if (string.Compare(item.CatAttribute, "과목") == 0)
+                            {
+                                <div class="form-check form-check-inline">
+                                    <button class="btn btn-danger" style="width:5px;height:5px" onclick="deletecat(@item.CatId)"></button>
+                                    <label class="form-check-label" for="inlineCheckbox1">@item.CatName</label>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="mb-3" style="width:100%;">
+                    동아리
+                    <div class="mb-2">
+                        <hr />
+                        @foreach (var item in Model.OrderBy(b => b.CatName))
+                        {
+                            if (string.Compare(item.CatAttribute, "동아리") == 0)
+                            {
+                                <div class="form-check form-check-inline">
+                                    <button class="btn btn-danger" style="width:5px;height:5px" onclick="deletecat(@item.CatId)"></button>
+                                    <label class="form-check-label" for="inlineCheckbox1">@item.CatName</label>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="mb-3" style="width:100%;">
+                    기타
+                    <div class="mb-2">
+                        <hr />
+                        @foreach (var item in Model.OrderBy(b => b.CatName))
+                        {
+                            if (string.Compare(item.CatAttribute, "기타") == 0)
+                            {
+                                <div class="form-check form-check-inline">
+                                    <button class="btn btn-danger" style="width:5px;height:5px" onclick="deletecat(@item.CatId)"></button>
+                                    <label class="form-check-label" for="inlineCheckbox1">@item.CatName</label>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
         </div>
         <form class="form-input" method="post">
             <div class="input-group mb-3">

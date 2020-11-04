@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "계정 삭제";
+}
+
+<div class="page-all">
+    <div class="form-input-500" style="text-align:center">
+        <h2>계정 삭제</h2>
+        <h4>
+            정말로 삭제하시겠습니까?
+            삭제 후에는 되돌릴 수 없습니다.
+        </h4>
+
+        <input type="button" class="btn btn-primary" value="뒤로가기" onClick="history.go(-1)">
+        <form method="post" action="Delete">
+            @Html.AntiForgeryToken()
+            <input type="hidden" class="btn btn-danger" name="id" value="@Session["UserNo"]">
+            <input type="submit" class="btn btn-danger" value="delete">
+        </form>
+
+    </div>
+</div>
