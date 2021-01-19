@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="google-site-verification" content="LIp5upqcuOUpG31dIxf-8WpKs5EHyRBAzrKMRuJoPmk" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <link rel="stylesheet" href="/Content/bootstrap.min.css">
+    <link rel="stylesheet" href="/Content/owl.carousel.min.css">
+    <link rel="stylesheet" href="/Content/magnific-popup.css">
+    <link rel="stylesheet" href="/Content/font-awesome.min.css">
+    <link rel="stylesheet" href="/Content/themify-icons.css">
+    <link rel="stylesheet" href="/Content/nice-select.css">
+    <link rel="stylesheet" href="/Content/flaticon.css">
+    <link rel="stylesheet" href="/Content/animate.css">
+    <link rel="stylesheet" href="/Content/slicknav.css">
+    <link rel="stylesheet" href="/Content/style.css">
+    <!--login-->
+    <link rel="stylesheet" type="text/css" href="/css/util.css">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <!--login-->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/x-icon" href="~/favicon.ico" />
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link href="/Content/site.css" rel="stylesheet" />
+    <script src="/Scripts/modernizr-2.8.3.js"></script>
+    @{
+
+    }
+    <style>
+        .imgcell {
+            width: 100%;
+        }
+    </style>
+
+    <script>
+        function logout() {
+            var f = document.logout;
+            f.btnSubmit.value = "logout";
+            f.action = "/users/login"
+            f.method = "post"
+            f.submit();
+        }
+    </script>
+</head>
+<body class="is-preload" style="padding-top:64px">
+    <header>
+        <div class="header-area " style="background-color: #54145A">
+            <div id="sticky-header" class="main-header-area " style="padding:0px">
+                <div class="container-fluid p-0">
+                    <div class="row align-items-center justify-content-between no-gutters">
+                        <div class="col-xl-2 col-lg-2">
+                            <div class="logo-img">
+                                <a href="/home/index">
+                                    <img style="height:63px" src="/img/logo.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-8 col-lg-8">
+                            <div class="main-menu GongGothic d-none d-lg-block">
+                                <nav>
+                                    <ul id="navigation">
+                                        @try
+                                        {
+                                            if (Session["UserName"] != null && (Session["UserClass"].ToString() == "Teacher" || Session["UserClass"].ToString() == "Admin"))
+                                            {
+                                                <li>
+                                                    <a class="kotra" href="#">선생님 페이지 <i class="ti-angle-down"></i></a>
+                                                    <ul class="submenu">
+                                                        <li><a class="kotra" href="/homework/create">과제추가</a></li>
+                                                        <li><a class="kotra" href="/Teacher/AddCat">카테고리추가</a></li>
+                                                        <li><a class="kotra" href="/Teacher/ClassNoti">교실알림전송</a></li>
+                                                    </ul>
+                                                </li>
+                                            }
+
+                                            if (Session["UserName"] != null && (Session["UserClass"].ToString() == "Student" || Session["UserClass"].ToString() == "Admin"))
+                                            {
+                                                <li>
+                                                    <a class="kotra" href="#">과제열람페이지 <i class="ti-angle-down"></i></a>
+                                                    <ul class="submenu">
+                                                        <li><a class="kotra" href="/Homework/index">과제확인하기</a></li>
+                                                        <li><a class="kotra" href="/Student/ClassNotiList">교실알림내역</a></li>
+                                                    </ul>
+                                                </li>
+                                            }
+                                            if (Session["UserName"] != null && (Session["UserClass"].ToString() == "Student" || Session["UserClass"].ToString() == "Admin"))
+                                            {
+                                                <li><a class="kotra" href="/Student/Settings">개인정보수정</a></li>
+                                            }
+                                            if (Session["UserName"] != null && Session["UserClass"].ToString() == "Admin")
+                                            {
+
+                                                <li><a class="kotra" href="/admin">관리자페이지</a></li>
+                                            }
+                                            if (Session["UserName"] != null)
+                                            {
+                                                <li><a class="kotra" id="login" style="display:none" href="javascript:logout()">로그아웃</a></li>
+                                            }
+                                            else
+                                            {
+                                                <li><a class="kotra" id="login" style="display:none" href="/users/login">로그인</a></li>
+                                            }
+
+                                        }
+                                        catch (Exception E)
+                                        {
+
+                                        }
+
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-2 col-lg-2 d-none d-lg-block">
+                            @if (Session["UserName"] != null)
+                            {
+                                <form method="post" action="/Users/Login">
+                                    @Html.AntiForgeryToken()
+                                    <input name="btnSubmit" type="submit" value="logout" class="boxed-btn-white">
+                                </form>
+
+                                <!--<span class="text-secondary mr-sm-4">@Session["UserName"].ToString() 님 안녕하세요!  </span>
+                                <form method="post" action="/Users/Login">
+                                    @Html.AntiForgeryToken()
+                                    <input name="btnSubmit" class="btn btn-outline-primary my-2 my-sm-2" type="submit" value="로그아웃" />
+                                </form>-->
+                            }
+                            else
+                            {
+                                <div class="buy_ticket">
+                                    <a href="/users/login" class="boxed-btn-white">Login</a>
+                                </div>
+                            }
+                        </div>
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none">
+
+                            </div>
+                        </div>
+                        <form name="logout">
+                            <input type="hidden" name="btnSubmit" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+    <div>
+        @RenderBody()
+        <hr style="margin-top:0px"/>
+        <footer id="footer">
+            <div class="copyright">
+                <p>&copy; Copyright @DateTime.Now.Year by INCAL. All right reserved.</p>
+            </div>
+        </footer>
+
+        <footer>
+            
+        </footer>
+    </div>
+    <script src="/Scripts/Site.js"></script>
+    <script src="/js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/owl.carousel.min.js"></script>
+    <script src="/js/isotope.pkgd.min.js"></script>
+    <script src="/js/ajax-form.js"></script>
+    <script src="/js/waypoints.min.js"></script>
+    <script src="/js/jquery.counterup.min.js"></script>
+    <script src="/js/imagesloaded.pkgd.min.js"></script>
+    <script src="/js/scrollIt.js"></script>
+    <script src="/js/jquery.scrollUp.min.js"></script>
+    <script src="/js/wow.min.js"></script>
+    <script src="/js/nice-select.min.js"></script>
+    <script src="/js/jquery.slicknav.min.js"></script>
+    <script src="/js/jquery.magnific-popup.min.js"></script>
+    <script src="/js/jquery.countdown.js"></script>
+    <script src="/js/plugins.js"></script>
+
+
+    <script src="/js/contact.js"></script>
+    <script src="/js/jquery.ajaxchimp.min.js"></script>
+    <script src="/js/jquery.form.js"></script>
+    <script src="/js/jquery.validate.min.js"></script>
+    <script src="/js/mail-script.js"></script>
+
+    <script src="/js/main.js"></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

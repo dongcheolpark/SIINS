@@ -1,0 +1,26 @@
+﻿@model MvcMovie.Models.Image
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Image</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Imgurl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Imgurl)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ImgNo }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

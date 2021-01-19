@@ -1,0 +1,106 @@
+﻿@model List<MvcMovie.Models.Homework>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="page-all">
+    <div class="form-input" onsubmit="return subpopup();">
+
+        <h2>과제</h2>
+
+        <table class="table table-striped table-bordered desktop">
+            <colgroup>
+                <col style="width:10%" />
+                <col style="width:10%" />
+                <col style="width:70%" />
+                <col style="width:10%" />
+            </colgroup>
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">
+                        과목
+                    </th>
+                    <th scope="col">
+                        선생님이름
+                    </th>
+                    <th scope="col">
+                        제목
+                    </th>
+                    <th scope="col">
+                        기한
+                    </th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td scope="col">
+                            @Html.DisplayFor(modelItem => item.Subject)
+                        </td>
+                        <td scope="col">
+                            @Html.DisplayFor(modelItem => item.T_Name)
+                        </td>
+                        <td scope="col">
+                            <a class="text-body kotra" href="/homework/details/@item.NoteNo">@item.Title</a>
+                        </td>
+                        <td scope="col">
+                            @item.Date.ToShortDateString()
+                        </td>
+                        @try
+                        {
+                            if (Session["UserName"] != null && string.Compare(Session["UserClass"].ToString(), "admin") == 0)
+                            {
+                                <td scope="col">
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.NoteNo }) |
+                                    @Html.ActionLink("Details", "Details", new { id = item.NoteNo }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.NoteNo })
+                                </td>
+                            }
+                        }
+                        catch (Exception E)
+                        {
+                        }
+                    </tr>
+                }
+
+            </thead>
+        </table>
+        <div class="mobile" style="border:1px solid #808080">
+            <ul class="list-detailv paybooc" style="margin-bottom:0rem">
+                <hr style="margin:0px" />
+                @foreach (var item in Model)
+                {
+                    <li style="margin-left:10px">
+                        <a href="/homework/details/@item.NoteNo" class="list-detail-div paybooc">
+                            <span class="subject">@item.Title</span>
+                            <ul class="list-info">
+                                <li>@item.Subject</li>
+                                <li>@item.T_Name</li>
+                                <li>@item.Date.ToShortDateString()</li>
+                            </ul>
+                        </a>
+                    </li>
+                    <hr style="margin:0px" />
+                }
+            </ul>
+            @if (Model.Count == 0)
+            {
+                <h3 class="mobile" style="text-align: center ">과제가 없어요!</h3>
+            }
+        </div>
+        @if (Model.Count == 0)
+        {
+            <h3 class="desktop" style="text-align: center ">과제가 없어요!</h3>
+        }
+    </div>
+</div>
+<script>
+
+    function subpopup() {
+        var url = "/homework/create";
+        var name = "전송되었습니다.";
+        var option = "width = 500, height = 500, top = 100, left = 200, location = no"
+        window.open(url, name, option);
+    }
+</script>

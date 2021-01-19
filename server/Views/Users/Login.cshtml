@@ -1,0 +1,89 @@
+﻿@model testweb2.Models.User
+
+@{
+    ViewBag.Title = "Login";
+}
+
+
+<form id="fmField" name="fmField" role="form" method="post" action="Login" onsubmit="return checkForm()">
+    @Html.AntiForgeryToken()
+    <div class="limiter">
+        
+        <div class="container-login100" style="background: -webkit-radial-gradient(rgb(143, 22, 237), rgb(84, 20, 90));">
+            <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54 kotra">
+                    <span class="login100-form-title kotra p-b-49">
+                        로그인
+                    </span>
+
+                    <div class="wrap-input100 validate-input m-b-23" data-validate="Username is reauired">
+                        <span class="label-input100 kotra">아이디</span>
+                        <input class="input100" type="text" id="userId" name="UserId" placeholder="아이디">
+                        <span class="focus-input100 kotra" data-symbol="&#x270E;"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Password is required">
+                        <span class="label-input100 kotra">비밀번호</span>
+                        <input class="input100" type="password" id="userPw" name="userpassword" placeholder="패스워드">
+                        <span class="focus-input100" data-symbol="&#x270E;"></span>
+                    </div>
+
+                    <div class="text-right p-t-8 p-b-31">
+                        <a href="#">
+                            비밀번호 찾기
+                        </a>
+                    </div>
+
+                    <div class="container-login100-form-btn">
+                        <div class="wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button class="login100-form-btn" name="btnSubmit" value="login" type="submit">
+                                로그인
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="flex-col-c p-t-155">
+                        <a href="/users/Create" class="txt2">
+                            회원가입
+                        </a>
+                    </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script>
+    function checkForm() {
+        var userId = document.fmField.userId;
+        // 아이디 입력 유무 체크
+        if (userId.value == '') {
+            window.alert("아이디를 입력하세요");
+            return false; // 아이디 입력이 안되어 있다면 submint 이벤트를 중지
+        }
+        var userPw = document.fmField.userPw;
+        // 암호 입력 유무 체크
+        if (userPw.value == '') {
+            window.alert("비밀번호를 입력하세요");
+            return false;
+        }
+    }
+</script>
+
+
+
+<!--<form class="form-signin" role="form" method="post" action="Login">
+    @Html.AntiForgeryToken()
+
+    <h2 class="text-center">로그인</h2>
+
+    <div class="form-group" id="divId">
+        <input type="text" class="form-control onlyAlphabetAndNumber" id="UserId" name="UserId" data-rule-required="true" placeholder="30자이내의 알파벳, 언더스코어(_), 숫자만 입력 가능합니다." maxlength="30">
+    </div>
+    <div class="form-group" id="divPassword">
+        <input type="password" class="form-control" id="UserPassword" name="UserPassword" data-rule-required="true" placeholder="패스워드" maxlength="30">
+    </div>
+
+    <div class="form-group text-center" id="divSubmit">
+        <input type="submit" name="btnSubmit" value="로그인" class="btn btn-primary justify-content-center">
+    </div>
+</form>-->

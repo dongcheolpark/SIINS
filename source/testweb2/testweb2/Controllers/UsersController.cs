@@ -43,11 +43,15 @@ namespace testweb2.Controllers
                     user.UserPassword = Encryption.Encode(user.UserPassword);
                     user.UserGroup = int.Parse(radio);
 
-                    for (int i = 0; i < checkbox.Length; i++)
+                    if (checkbox != null)
                     {
-                        var cuser = new SelectedCategory() { CatUSelect = int.Parse(checkbox[i]), CatUName = user.UserNo };
-                        db2.Categories.Add(cuser);
+                        for (int i = 0; i < checkbox.Length; i++)
+                        {
+                            var cuser = new SelectedCategory() { CatUSelect = int.Parse(checkbox[i]), CatUName = user.UserNo };
+                            db2.Categories.Add(cuser);
+                        }
                     }
+
 
                     db.Users.Add(user);
                     db2.SaveChanges();
@@ -63,7 +67,7 @@ namespace testweb2.Controllers
             }
             catch (Exception E)
             {
-                return RedirectPermanent("~/Error/CustomEr?text=ErrorOccur");
+                return RedirectPermanent("~/Error/CustomEr/ErrorOccur");
             }
         }
 

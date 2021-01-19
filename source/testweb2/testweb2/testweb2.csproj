@@ -204,33 +204,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201903311342425_NoteCat.cs" />
-    <Compile Include="Migrations\201903311342425_NoteCat.Designer.cs" />
-    <Compile Include="Migrations\202008130156319_addclassnoti.cs" />
-    <Compile Include="Migrations\202008130156319_addclassnoti.Designer.cs">
-      <DependentUpon>202008130156319_addclassnoti.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202009060846597_ClssNoti.cs" />
-    <Compile Include="Migrations\202009060846597_ClssNoti.Designer.cs">
-      <DependentUpon>202009060846597_ClssNoti.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202010240407162_InitialCreate.cs" />
-    <Compile Include="Migrations\202010240407162_InitialCreate.Designer.cs">
-      <DependentUpon>202010240407162_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202010310624358_noteclass.cs" />
-    <Compile Include="Migrations\202010310624358_noteclass.Designer.cs">
-      <DependentUpon>202010310624358_noteclass.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011030806195_users.cs" />
-    <Compile Include="Migrations\202011030806195_users.Designer.cs">
-      <DependentUpon>202011030806195_users.cs</DependentUpon>
+    <Compile Include="Migrations\202101180313210_dbconfig.cs" />
+    <Compile Include="Migrations\202101180313210_dbconfig.Designer.cs">
+      <DependentUpon>202101180313210_dbconfig.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\ClassNoti.cs" />
     <Compile Include="Models\comment.cs" />
+    <Compile Include="Models\dbmigration.cs" />
     <Compile Include="Models\homework.cs" />
     <Compile Include="Models\image.cs" />
     <Compile Include="Models\Students.cs" />
@@ -607,21 +589,8 @@
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201903311342425_NoteCat.resx" />
-    <EmbeddedResource Include="Migrations\202008130156319_addclassnoti.resx">
-      <DependentUpon>202008130156319_addclassnoti.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009060846597_ClssNoti.resx">
-      <DependentUpon>202009060846597_ClssNoti.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010240407162_InitialCreate.resx">
-      <DependentUpon>202010240407162_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010310624358_noteclass.resx">
-      <DependentUpon>202010310624358_noteclass.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011030806195_users.resx">
-      <DependentUpon>202011030806195_users.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202101180313210_dbconfig.resx">
+      <DependentUpon>202101180313210_dbconfig.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,0 +1,243 @@
+﻿
+@{
+    ViewBag.Title = "ClassNoti";
+}
+
+<div class="page-all">
+
+    <form class="form-input" action="/Teacher/ClassNoti" method="post">
+        <h2>교실 알림 전송</h2>
+        <div class="input-group mb-3 div-border">
+            <div class="mb-3" style="width:100%">
+                1학년
+                <div class="mb-2">
+                    <hr />
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input 1grade" type="checkbox" name="Checkbox[]" id="101" value="101">
+                        <label class="form-check-label" for="inlineCheckbox1"> 1반 </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input 1grade" type="checkbox" name="Checkbox[]" id="102" value="102">
+                        <label class="form-check-label" for="inlineCheckbox1"> 2반 </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input 1grade" type="checkbox" name="Checkbox[]" id="103" value="103">
+                        <label class="form-check-label" for="inlineCheckbox1"> 3반 </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input 1grade" type="checkbox" name="Checkbox[]" id="104" value="104">
+                        <label class="form-check-label" for="inlineCheckbox1"> 4반 </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input 1grade" type="checkbox" name="Checkbox[]" id="105" value="105">
+                        <label class="form-check-label" for="inlineCheckbox1"> 5반 </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input 1grade" type="checkbox" name="Checkbox[]" id="106" value="106">
+                        <label class="form-check-label" for="inlineCheckbox1"> 6반 </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input 1grade" type="checkbox" name="Checkbox[]" id="107" value="107">
+                        <label class="form-check-label" for="inlineCheckbox1"> 7반 </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input 1grade" type="checkbox" name="Checkbox[]" id="108" value="108">
+                        <label class="form-check-label" for="inlineCheckbox1"> 8반 </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="1grade" value="208">
+                        <label class="form-check-label" for="inlineCheckbox1"> 1학년 전체선택 </label>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3" style="width:100%">
+                2학년
+                <div class="mb-2">
+                    <hr />
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="Checkbox[]" id="201" value="201">
+                        <label class="form-check-label" for="inlineCheckbox1"> 1반 </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="Checkbox[]" id="202" value="202">
+                        <label class="form-check-label" for="inlineCheckbox1"> 2반 </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="Checkbox[]" id="203" value="203">
+                        <label class="form-check-label" for="inlineCheckbox1"> 3반 </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="Checkbox[]" id="204" value="204">
+                        <label class="form-check-label" for="inlineCheckbox1"> 4반 </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="Checkbox[]" id="205" value="205">
+                        <label class="form-check-label" for="inlineCheckbox1"> 5반 </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="Checkbox[]" id="206" value="206">
+                        <label class="form-check-label" for="inlineCheckbox1"> 6반 </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="Checkbox[]" id="207" value="207">
+                        <label class="form-check-label" for="inlineCheckbox1"> 7반 </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="Checkbox[]" id="208" value="208">
+                        <label class="form-check-label" for="inlineCheckbox1"> 8반 </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="2grade" value="208">
+                        <label class="form-check-label" for="inlineCheckbox1"> 2학년 전체선택 </label>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3" style="width:100%">
+                3학년
+                <div class="mb-2">
+                    <hr />
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="Checkbox[]" id="301" value="301">
+                        <label class="form-check-label" for="inlineCheckbox1"> 1반 </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="Checkbox[]" id="302" value="302">
+                        <label class="form-check-label" for="inlineCheckbox1"> 2반 </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="Checkbox[]" id="303" value="303">
+                        <label class="form-check-label" for="inlineCheckbox1"> 3반 </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="Checkbox[]" id="304" value="304">
+                        <label class="form-check-label" for="inlineCheckbox1"> 4반 </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="Checkbox[]" id="305" value="305">
+                        <label class="form-check-label" for="inlineCheckbox1"> 5반 </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="Checkbox[]" id="306" value="306">
+                        <label class="form-check-label" for="inlineCheckbox1"> 6반 </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="Checkbox[]" id="307" value="307">
+                        <label class="form-check-label" for="inlineCheckbox1"> 7반 </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="Checkbox[]" id="308" value="308">
+                        <label class="form-check-label" for="inlineCheckbox1"> 8반 </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="3grade" value="208">
+                        <label class="form-check-label" for="inlineCheckbox1"> 3학년 전체선택 </label>
+                    </div>
+                </div>
+                <div class="mb-3" style="width:100%">
+                    <hr />
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="Emergency" value="true">
+                        <label class="form-check-label" for="inlineCheckbox1"> 응급 </label>
+                    </div>
+                    <hr />
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon3">전송 내용 입력</span>
+                    </div>
+                    <div class="form-check">
+                        <input type="text" class="form-control" id="basic-url" name="ClassNotiText" aria-describedby="basic-addon3">
+                    </div>
+                </div>
+
+                <select class="custom-select" id="inputGroupSelect01" name="ClassNotiAttribute">
+                    <option selected>Choose...</option>
+                    <option value="공지사항">공지사항</option>
+                    <option value="수행평가">수행평가</option>
+                    <option value="시간표 변경">시간표 변경</option>
+                    <option value="교실 변경">교실 변경</option>
+                    <option value="기타">기타</option>
+                </select>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="전송" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <script>
+        $(document).ready(function () {
+            $("#1grade").click(function () {
+                var chk = $(this).is(":checked");
+                if (chk) {
+                    $("input:checkbox[id='101']").prop('checked', true);
+                    $("input:checkbox[id='102']").prop('checked', true);
+                    $("input:checkbox[id='103']").prop('checked', true);
+                    $("input:checkbox[id='104']").prop('checked', true);
+                    $("input:checkbox[id='105']").prop('checked', true);
+                    $("input:checkbox[id='106']").prop('checked', true);
+                    $("input:checkbox[id='107']").prop('checked', true);
+                    $("input:checkbox[id='108']").prop('checked', true);
+                }
+                else {
+                    $("input:checkbox[id = '101']").prop('checked', false);
+                    $("input:checkbox[id = '102']").prop('checked', false);
+                    $("input:checkbox[id = '103']").prop('checked', false);
+                    $("input:checkbox[id = '104']").prop('checked', false);
+                    $("input:checkbox[id = '105']").prop('checked', false);
+                    $("input:checkbox[id = '106']").prop('checked', false);
+                    $("input:checkbox[id = '107']").prop('checked', false);
+                    $("input:checkbox[id = '108']").prop('checked', false);
+                }
+            });
+            $("#2grade").click(function () {
+                var chk = $(this).is(":checked");
+                if (chk) {
+                    $("input:checkbox[id='201']").prop('checked', true);
+                    $("input:checkbox[id='202']").prop('checked', true);
+                    $("input:checkbox[id='203']").prop('checked', true);
+                    $("input:checkbox[id='204']").prop('checked', true);
+                    $("input:checkbox[id='205']").prop('checked', true);
+                    $("input:checkbox[id='206']").prop('checked', true);
+                    $("input:checkbox[id='207']").prop('checked', true);
+                    $("input:checkbox[id='208']").prop('checked', true);
+                }
+                else {
+                    $("input:checkbox[id = '201']").prop('checked', false);
+                    $("input:checkbox[id = '202']").prop('checked', false);
+                    $("input:checkbox[id = '203']").prop('checked', false);
+                    $("input:checkbox[id = '204']").prop('checked', false);
+                    $("input:checkbox[id = '205']").prop('checked', false);
+                    $("input:checkbox[id = '206']").prop('checked', false);
+                    $("input:checkbox[id = '207']").prop('checked', false);
+                    $("input:checkbox[id = '208']").prop('checked', false);
+                }
+            });
+            $("#3grade").click(function () {
+                var chk = $(this).is(":checked");
+                if (chk) {
+                    $("input:checkbox[id='301']").prop('checked', true);
+                    $("input:checkbox[id='302']").prop('checked', true);
+                    $("input:checkbox[id='303']").prop('checked', true);
+                    $("input:checkbox[id='304']").prop('checked', true);
+                    $("input:checkbox[id='305']").prop('checked', true);
+                    $("input:checkbox[id='306']").prop('checked', true);
+                    $("input:checkbox[id='307']").prop('checked', true);
+                    $("input:checkbox[id='308']").prop('checked', true);
+                }
+                else {
+                    $("input:checkbox[id = '301']").prop('checked', false);
+                    $("input:checkbox[id = '302']").prop('checked', false);
+                    $("input:checkbox[id = '303']").prop('checked', false);
+                    $("input:checkbox[id = '304']").prop('checked', false);
+                    $("input:checkbox[id = '305']").prop('checked', false);
+                    $("input:checkbox[id = '306']").prop('checked', false);
+                    $("input:checkbox[id = '307']").prop('checked', false);
+                    $("input:checkbox[id = '308']").prop('checked', false);
+                }
+            });
+        });
+    </script>
+</div>
