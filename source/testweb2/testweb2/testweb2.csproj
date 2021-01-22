@@ -575,6 +575,7 @@
     <Content Include="Views\Admin\ViewDB.cshtml" />
     <Content Include="Views\Admin\Class.cshtml" />
     <Content Include="Views\Error\CustomEr.cshtml" />
+    <Content Include="Views\student\ChangePw.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -115,6 +115,54 @@ namespace testweb2.Controllers
             return View(a);
         }
 
+        public ActionResult ChangePw()
+        {
+            try
+            {
+                if (!Authen.Certification(Session["UserClass"].ToString(), Authen.UserClass.Student))
+                {
+                    return RedirectToAction("PermitionEr", "Error");
+
+                }
+
+                return View();
+
+            }
+            catch
+            {
+                return RedirectToAction("LoginEr", "Error");
+            }
+        }
+        [HttpPost]
+        public ActionResult ChangePw(string UserId, string UserPrePw, string UserChPw)
+        {
+            try
+            {
+                if (!Authen.Certification(Session["UserClass"].ToString(), Authen.UserClass.Student))
+                {
+                    return RedirectToAction("PermitionEr", "Error");
+
+                }
+
+                UserPrePw = Encryption.Encode(UserPrePw);
+
+                var a = db4.Users.First(e => e.UserId == UserId);
+                if (a.UserPassword == UserPrePw)
+                {
+                    a.UserPassword = Encryption.Encode(UserChPw);
+                    db4.SaveChanges();
+                }
+
+
+                return View();
+
+            }
+            catch
+            {
+                return RedirectToAction("LoginEr", "Error");
+            }
+        }
+
         /*[HttpPost]
         public ActionResult ChangeCat()
         {
