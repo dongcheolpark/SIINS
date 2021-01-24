@@ -6,15 +6,24 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
 using SIINS_APP_API.Models;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using System;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace SIINS_APP_API
 {
     public class Startup
     {
+
+        private string secretKey = "mysupersecret_secretkey!123";
+        private SymmetricSecurityKey signingKey;
+
         private readonly string ServerCon = "Data Source=siins.site;Initial Catalog=SIINS;User ID=server;Password=tr2042255";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            this.signingKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(secretKey));
         }
 
         public IConfiguration Configuration { get; }
@@ -50,6 +59,9 @@ namespace SIINS_APP_API
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
+
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

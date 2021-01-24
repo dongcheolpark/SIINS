@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using SIINS_APP_API.func;
 using SIINS_APP_API.Models;
 
@@ -13,6 +15,7 @@ namespace SIINS_APP_API.Controllers
     public class UsersController : ControllerBase
     {
         private readonly UserDBContext _context;
+
 
         public UsersController(UserDBContext context)
         {
