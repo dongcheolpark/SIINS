@@ -69,12 +69,12 @@ namespace SIINS_APP_API.Models
         public DbSet<Category> Category { get; set; }
     }
 
-    public class UserCategoriesDBcontext : DbContext
+    public class SelectedCategoriesDBcontext : DbContext
     {
-        public UserCategoriesDBcontext(DbContextOptions<UserCategoriesDBcontext> options) : base(options)
+        public SelectedCategoriesDBcontext(DbContextOptions<SelectedCategoriesDBcontext> options) : base(options)
         {
         }
-        public DbSet<SelectedCategory> Categories { get; set; }
+        public DbSet<SelectedCategory> SelectedCategories { get; set; }
     }
 
 }

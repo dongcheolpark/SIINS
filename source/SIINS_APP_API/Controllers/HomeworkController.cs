@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using SIINS_APP_API.func;
 using SIINS_APP_API.Models;
 
 namespace SIINS_APP_API.Controllers
@@ -14,10 +15,19 @@ namespace SIINS_APP_API.Controllers
     public class HomeworkController : ControllerBase
     {
         private readonly HomeworkDBContext _context;
+        private readonly UserDBContext userDB;
+        private SelectedCategoriesDBcontext userCatDB;
+        private NoteCatDBContext noteCatDB;
+        private NoteClassDBContext noteClassDB;
 
-        public HomeworkController(HomeworkDBContext context)
+        public HomeworkController(HomeworkDBContext context,UserDBContext userDB, NoteCatDBContext noteCatDB,
+                            SelectedCategoriesDBcontext userCatDB, NoteClassDBContext noteClassDB)
         {
             _context = context;
+            this.userDB = userDB;
+            this.userCatDB = userCatDB;
+            this.noteCatDB = noteCatDB;
+            this.noteClassDB = noteClassDB;
         }
 
         // GET: api/Homework
@@ -41,46 +51,17 @@ namespace SIINS_APP_API.Controllers
             return homework;
         }
 
-        // PUT: api/Homework/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutHomework(int id, Homework homework)
-        {
-            if (id != homework.NoteNo)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(homework).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!HomeworkExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
         // POST: api/Homework
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Homework>> PostHomework(Homework homework)
+        public ActionResult<List<Homework>> PostHomework([Bind("id,pw")]auth user)
         {
-            _context.Homework.Add(homework);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetHomework", new { id = homework.NoteNo }, homework);
+            if (UserExists.Run(user.id, user.pw, userDB))
+            {
+                GetHomeworks a = new GetHomeworks(_context,userDB,noteCatDB,userCatDB,noteClassDB,user.id);
+                return a.Run();
+            }
+            return null;
         }
 
         // DELETE: api/Homework/5
@@ -97,11 +78,6 @@ namespace SIINS_APP_API.Controllers
             await _context.SaveChangesAsync();
 
             return NoContent();
-        }
-
-        private bool HomeworkExists(int id)
-        {
-            return _context.Homework.Any(e => e.NoteNo == id);
         }
     }
 }

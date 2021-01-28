@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using SIINS_APP_API.func;
 using SIINS_APP_API.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace SIINS_APP_API.Controllers
 {
@@ -32,7 +33,11 @@ namespace SIINS_APP_API.Controllers
         [HttpGet("{id}/{pw}")]
         public ActionResult<bool> GetUser(string id,string pw)
         {
-            return UserExists.Run(id, pw, _context);
+            if (UserExists.Run(id, pw, _context))
+            {
+                return true;
+            }
+            return false;
         }
 
         // POST: api/Users

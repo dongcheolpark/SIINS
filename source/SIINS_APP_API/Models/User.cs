@@ -3,6 +3,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SIINS_APP_API.Models
 {
+    public class auth
+    {
+        public string id { get; set; }
+        public string pw { get; set; }
+    }
     public class User
     {   
         [Key]

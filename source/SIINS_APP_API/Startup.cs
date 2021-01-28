@@ -41,7 +41,7 @@ namespace SIINS_APP_API
             services.AddDbContext<NoteClassDBContext>(opt =>
                                                opt.UseSqlServer(ServerCon));
 
-            services.AddDbContext<UserCategoriesDBcontext>(opt =>
+            services.AddDbContext<SelectedCategoriesDBcontext>(opt =>
                                                opt.UseSqlServer(ServerCon));
 
             services.AddDbContext<CommentDBContext>(opt =>

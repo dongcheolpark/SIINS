@@ -18,7 +18,7 @@ namespace SIINS_APP_API
 
             foreach (byte x in hashedDataBytes)
             {
-                hashString += String.Format("{0:x2}", x);
+                hashString += string.Format("{0:x2}", x);
             }
 
             return Convert.ToBase64String(encoder.GetBytes(hashString));

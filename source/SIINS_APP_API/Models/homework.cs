@@ -43,7 +43,7 @@ namespace SIINS_APP_API.Models
         public NoteCatDBContext(DbContextOptions<NoteCatDBContext> options) : base(options)
         {
         }
-        public DbSet<NoteCat> NoteCat { get; set; }
+        public DbSet<NoteCat> NoteCats { get; set; }
         
     }
 
@@ -52,6 +52,6 @@ namespace SIINS_APP_API.Models
         public NoteClassDBContext(DbContextOptions<NoteClassDBContext> options) : base(options)
         {
         }
-        public DbSet<NoteClass> NoteClass { get; set; }
+        public DbSet<NoteClass> NoteClasses { get; set; }
     }
 }
