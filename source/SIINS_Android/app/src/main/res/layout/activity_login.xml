@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:textColor="#000"
+                android:textSize="20dp"
+                android:id="@+id/inputId"
+                android:hint="아이디"
+                android:textColorHint="#c9c9c9"
+                android:inputType="text"/>
+            <EditText
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:textColor="#000"
+                android:textSize="20dp"
+                android:id="@+id/inputPwd"
+                android:hint="비밀번호"
+                android:textColorHint="#c9c9c9"
+                android:inputType="text"/>
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="로그인"
+            android:textSize="20dp"
+            android:id="@+id/loginBtn"/>
+
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/auto_login"
+        android:layout_width="301dp"
+        android:layout_height="wrap_content"
+        android:text="자동 로그인" />
+</LinearLayout>

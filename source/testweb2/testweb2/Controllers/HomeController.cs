@@ -36,7 +36,7 @@ namespace testweb2.Controllers
         public ActionResult DownloadFile()
         {
             string path = AppDomain.CurrentDomain.BaseDirectory + "Files/";
-            string fileName = "INCAL.apk";
+            string fileName = "SIINS.apk";
             byte[] fileBytes = System.IO.File.ReadAllBytes(path + fileName);
             return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
         }
