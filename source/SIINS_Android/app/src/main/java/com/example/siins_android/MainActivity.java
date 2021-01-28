@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import org.json.JSONArray;
@@ -36,6 +38,16 @@ public class MainActivity extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView parent, View v, int position, long id) {
+                SampleData item = (SampleData) parent.getItemAtPosition(position);
+                Intent intent = new Intent(MainActivity.this, DetailsActivity.class);
+                intent.putExtra("detail",item);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -83,7 +95,8 @@ public class MainActivity extends AppCompatActivity {
         JSONArray b = a.PostJsonconnection(json);
         for(int i = 0; i<b.length();i++) {
             JSONObject item = b.getJSONObject(i);
-            Homeworklist.add(new SampleData(item.getString("title"),item.getString("subject")));
+            Homeworklist.add(new SampleData(item.getString("title"),item.getString("subject"),
+                                            item.getString("contents"),item.getString("date"), item.getString("t_Name")));
         }
         final ListAdapter c = new ListAdapter(this,Homeworklist);
         listView.setAdapter(c);

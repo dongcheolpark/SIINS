@@ -12,8 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SIINS_Android"
         android:usesCleartextTraffic="true">
-        <activity android:name=".PreferenceActivity"></activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".DetailsActivity"></activity>
+        <activity android:name=".PreferenceActivity" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

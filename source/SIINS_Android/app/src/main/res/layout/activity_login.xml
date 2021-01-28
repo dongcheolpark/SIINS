@@ -30,6 +30,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="#000"
                 android:textSize="20dp"
+                android:password="true"
                 android:id="@+id/inputPwd"
                 android:hint="비밀번호"
                 android:textColorHint="#c9c9c9"
