@@ -23,6 +23,7 @@ namespace testweb2.Controllers
         private NoteCatDBContext db3 = new NoteCatDBContext(); //과제 카테고리 db
         private UserCategoriesDBcontext db4 = new UserCategoriesDBcontext(); //유저 카테고리 db
         private NoteClassDBContext db5 = new NoteClassDBContext();
+        private CommentDBContext db6 = new CommentDBContext();
 
         // GET: Homework
         public ActionResult Index()//과제확인 리스트
@@ -276,8 +277,7 @@ namespace testweb2.Controllers
 
                 }
                 Homework homework = db.Homework.First(a => a.NoteNo == id);
-                db.Homework.Remove(homework);
-                db.SaveChanges();
+                _DelHomeworks(homework);
                 return RedirectToAction("Index");
             }
             catch
@@ -294,6 +294,36 @@ namespace testweb2.Controllers
             }
             base.Dispose(disposing);
         }
+        void _DelHomeworks(Homework item)
+        {
+            var data2 = from a in db3.NoteCat.ToList()
+                        where a.NoteNo == item.NoteNo
+                        select a;
+            var data3 = from a in db5.NoteClass.ToList()
+                        where a.NoteId == item.NoteNo
+                        select a;
+            var data4 = from a in db6.Comment.ToList()
+                        where a.ParentNo == item.NoteNo
+                        select a;
+            foreach (var item2 in data2)
+            {
+                db3.NoteCat.Remove(item2);
+            }
+            foreach (var item2 in data3)
+            {
+                db5.NoteClass.Remove(item2);
+            }
+            foreach (var item2 in data4)
+            {
+                db6.Comment.Remove(item2);
+            }
+            db.Homework.Remove(item);
+
+            db.SaveChanges();
+            db3.SaveChanges();
+            db5.SaveChanges();
+            db6.SaveChanges();
+        }
 
         void DelHomeworks()
         {
@@ -302,9 +332,8 @@ namespace testweb2.Controllers
                        select a;
             foreach (var item in data)
             {
-                db.Homework.Remove(item);
+                _DelHomeworks(item);
             }
-            db.SaveChanges();
             return;
         }
     }

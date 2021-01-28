@@ -45,10 +45,21 @@
             android:id="@+id/loginBtn"/>
 
     </LinearLayout>
-
-    <CheckBox
-        android:id="@+id/auto_login"
-        android:layout_width="301dp"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="자동 로그인" />
+        android:orientation="horizontal">
+        <CheckBox
+            android:id="@+id/auto_login"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:text="자동 로그인" />
+
+        <TextView
+            android:id="@+id/register"
+            android:clickable="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="회원가입"/>
+    </LinearLayout>
 </LinearLayout>

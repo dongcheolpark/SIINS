@@ -238,6 +238,7 @@
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
     <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\slicknav.css" />
     <Content Include="Content\style.css" />
     <Content Include="css\animate.css" />
     <Content Include="css\bootstrap.min.css" />

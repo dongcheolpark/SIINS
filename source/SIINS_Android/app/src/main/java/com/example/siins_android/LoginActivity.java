@@ -3,11 +3,13 @@ package com.example.siins_android;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,6 +35,14 @@ public class LoginActivity extends AppCompatActivity {
         SharedPreferences auto = getSharedPreferences("auto", Activity.MODE_PRIVATE);
         loginId = auto.getString("inputId", null);
         loginPwd = auto.getString("inputPwd", null);
+        TextView text = (TextView)findViewById(R.id.register);
+        text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://siins.site/users/Create"));
+                startActivity(intent);
+            }
+        });
 
         if (loginId != null && loginPwd != null) {
             User.Set(loginId,loginPwd);
