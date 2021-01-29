@@ -1,6 +1,7 @@
 package com.example.siins_android;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.security.auth.Subject;
 
@@ -9,9 +10,9 @@ public class SampleData implements Serializable {
     private String Subject;
     private String Teacher;
     private String Contents;
-    private String Date;
+    private java.util.Date Date;
 
-    public SampleData(String Title, String Subject,String Contents,String Date,String Teacher) {
+    public SampleData(String Title, String Subject,String Contents,Date Date,String Teacher) {
         this.Title = Title;
         this.Subject = Subject;
         this.Contents = Contents;
@@ -28,7 +29,7 @@ public class SampleData implements Serializable {
     public String GetContents(){
         return Contents;
     }
-    public String GetDate(){
+    public Date GetDate(){
         return Date;
     }
     public String GetTeacher(){

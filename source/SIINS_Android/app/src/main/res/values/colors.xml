@@ -10,4 +10,8 @@
     
     <color name="basic_color">#428FB8</color>
     <color name="second_color">#BBECF4</color>
+
+    <color name="red_color">#E88181</color>
+    <color name="yellow_color">#E4B640</color>
+    <color name="green_color">#5CD531</color>
 </resources>

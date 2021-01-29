@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.webkit.WebView;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
+
 import javax.security.auth.Subject;
 
 public class DetailsActivity extends AppCompatActivity {
@@ -27,10 +29,12 @@ public class DetailsActivity extends AppCompatActivity {
         ActionBar ab = getSupportActionBar() ;
         ab.setTitle(data.GetTitle());
 
+        SimpleDateFormat format = new SimpleDateFormat("yyyy년 MM월 dd일 까지");
+
         title.setText(data.GetTitle());
         subject.setText(data.GetSubject());
         teacher.setText(data.GetTeacher());
-        date.setText(data.GetDate());
+        date.setText(format.format(data.GetDate()));
         content.loadData(data.GetContents(),"text/html;charset=utf-8","UTF-8");
     }
 }

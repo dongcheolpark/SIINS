@@ -23,6 +23,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.net.MalformedURLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -45,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
             e.printStackTrace();
         }
         FirebaseMessaging.getInstance().subscribeToTopic("1");
@@ -100,6 +104,8 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 } catch (JSONException e) {
                     e.printStackTrace();
+                } catch (ParseException e) {
+                    e.printStackTrace();
                 }
                 return true ;
             // ...
@@ -110,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void InitializeHomeworkData() throws MalformedURLException, JSONException {
+    public void InitializeHomeworkData() throws MalformedURLException, JSONException, ParseException {
 
         Homeworklist = new ArrayList<SampleData>();
 
@@ -124,8 +130,11 @@ public class MainActivity extends AppCompatActivity {
         JSONArray b = a.PostJsonconnection(json);
         for(int i = 0; i<b.length();i++) {
             JSONObject item = b.getJSONObject(i);
+
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd\'T\'HH:mm:ss");
+
             Homeworklist.add(new SampleData(item.getString("title"),item.getString("subject"),
-                                            item.getString("contents"),item.getString("date"), item.getString("t_Name")));
+                                            item.getString("contents"),format.parse(item.getString("date")), item.getString("t_Name")));
         }
         final ListAdapter c = new ListAdapter(this,Homeworklist);
         listView.setAdapter(c);
