@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "839155564321",
+    "project_id": "siins-42d9e",
+    "storage_bucket": "siins-42d9e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:839155564321:android:eb258079b7508e6d0d0860",
+        "android_client_info": {
+          "package_name": "com.example.siins_android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "839155564321-m4gaeb3ud20ki7qlo5370absoegrntcc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBneITQMF69aYqTctVqhoMzBE4Wqo3UcMY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "839155564321-m4gaeb3ud20ki7qlo5370absoegrntcc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -13,6 +13,9 @@ using testweb2.Models;
 using testweb2.Func;
 using testweb2.Classes;
 using Newtonsoft.Json.Linq;
+using FirebaseAdmin.Messaging;
+using FirebaseAdmin;
+using Google.Apis.Auth.OAuth2;
 
 namespace testweb2.Controllers
 {
@@ -43,7 +46,7 @@ namespace testweb2.Controllers
                            orderby a.Date
                            select a;
                 var noteclasslist = db5.NoteClass.ToList();
-                List < Homework > result = new List<Homework>();//과제 리스트 불러오기
+                List<Homework> result = new List<Homework>();//과제 리스트 불러오기
                 int usergroup = int.Parse(Session["UserGr"].ToString());
                 foreach (var item in list)
                 {
@@ -51,9 +54,9 @@ namespace testweb2.Controllers
                     var catlist = from a in db3.NoteCat.ToList()
                                   where a.NoteNo == item.NoteNo
                                   select a;
-                    foreach(var item2 in noteclasslist)
+                    foreach (var item2 in noteclasslist)
                     {
-                        if(item2.NoteClasses == usergroup)
+                        if (item2.NoteClasses == usergroup)
                         {
                             check = true;
                             break;
@@ -173,10 +176,33 @@ namespace testweb2.Controllers
 
                     for (int i = 0; i < checkbox2.Length; i++)
                     {
-                        db5.NoteClass.Add(new NoteClass { NoteId=homework.NoteNo, NoteClasses = int.Parse(checkbox2[i])});
+                        db5.NoteClass.Add(new NoteClass { NoteId = homework.NoteNo, NoteClasses = int.Parse(checkbox2[i]) });
                     }
                     db5.SaveChanges();
                     db3.SaveChanges();
+
+                    var topic = "1";
+
+                    FirebaseApp.Create(new AppOptions()
+                    {
+                        Credential = GoogleCredential.FromFile(AppDomain.CurrentDomain.BaseDirectory+"SIINS_token.json"),
+                    });
+
+
+                    // See documentation on defining a message payload.
+                    var message = new Message()
+                    {
+
+                        Notification = new Notification()
+                        {
+                            Title = "새로운 과제가 도착했어요!",
+                            Body = "지금 확인해보세요",
+                        },
+                        Topic = topic
+                    };
+
+                    // Send a message to the devices subscribed to the provided topic.
+                    FirebaseMessaging.DefaultInstance.SendAsync(message);
 
                     /*Socket client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
                     IPEndPoint iPEndPoint = new IPEndPoint(IPAddress.Parse("110.10.38.94"), 1503);
