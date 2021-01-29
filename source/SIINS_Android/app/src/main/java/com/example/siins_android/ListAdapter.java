@@ -49,14 +49,16 @@ public class ListAdapter extends BaseAdapter {
         TextView Title = (TextView)view.findViewById(R.id.Title);
         TextView Subject = (TextView)view.findViewById(R.id.Subject);
         TextView Dayleft = (TextView)view.findViewById(R.id.dayleft);
-
-        Title.setText(sample.get(position).GetTitle());
-        Subject.setText(sample.get(position).GetSubject());
+        TextView teacher = (TextView)view.findViewById(R.id.Teacher);
+        SampleData a = sample.get(position);
+        Title.setText(a.GetTitle());
+        Subject.setText(a.GetSubject());
+        teacher.setText(a.GetTeacher());
 
 
         SimpleDateFormat format2 = new SimpleDateFormat("yyyy-MM-dd");
         try {
-            Date date = sample.get(position).GetDate();
+            Date date = a.GetDate();
             Date now = format2.parse(format2.format(new Date()));
 
             long diff = date.getTime() - now.getTime();

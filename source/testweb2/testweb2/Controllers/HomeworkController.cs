@@ -196,7 +196,7 @@ namespace testweb2.Controllers
                         Notification = new Notification()
                         {
                             Title = "새로운 과제가 도착했어요!",
-                            Body = "지금 확인해보세요",
+                            Body = homework.Title,
                         },
                         Topic = topic
                     };
