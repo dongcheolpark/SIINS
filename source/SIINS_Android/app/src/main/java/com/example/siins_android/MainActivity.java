@@ -36,7 +36,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ActionBar ab = getSupportActionBar() ;
-        ab.setTitle("HomeworkList");
+        ab.show();
+        ab.setTitle("숙제 리스트");
         listView = (ListView)findViewById(R.id.listView);
 
         try {
@@ -72,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                         // Log and toast
                         String msg = getString(R.string.msg_token_fmt,token);
                         Log.d(TAG, msg);
-                        Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
                     }
                 });
 
