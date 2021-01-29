@@ -404,7 +404,10 @@
     <Content Include="images\Capture001.png" />
     <Content Include="images\캡처.PNG" />
     <Content Include="img\about\about.png" />
+    <Content Include="img\about\about1.png" />
+    <Content Include="img\about\about2.jpg" />
     <Content Include="img\about\android.jfif" />
+    <Content Include="img\about\human.png" />
     <Content Include="img\about\shap1.png" />
     <Content Include="img\about\shap2.png" />
     <Content Include="img\banner\banner_1.png" />
