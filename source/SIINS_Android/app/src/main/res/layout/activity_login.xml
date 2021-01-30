@@ -53,6 +53,7 @@
                 android:textColor="#000"
                 android:textSize="20dp"
                 android:id="@+id/inputId"
+                android:fontFamily="@font/nexongothic"
                 android:hint="아이디"
                 android:textColorHint="#c9c9c9"
                 android:inputType="text"/>
@@ -61,6 +62,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="#000"
                 android:textSize="20dp"
+                android:fontFamily="@font/nexongothic"
                 android:password="true"
                 android:id="@+id/inputPwd"
                 android:hint="비밀번호"
@@ -89,6 +91,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
+                android:fontFamily="@font/nexongothic"
                 android:text="자동 로그인" />
 
             <TextView
@@ -98,6 +101,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:clickable="true"
+                android:fontFamily="@font/nexongothic"
                 android:text="회원가입" />
         </RelativeLayout>
     </LinearLayout>

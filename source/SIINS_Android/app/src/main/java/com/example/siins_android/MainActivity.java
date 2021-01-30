@@ -3,7 +3,12 @@ package com.example.siins_android;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,6 +21,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import org.json.JSONArray;
@@ -32,36 +38,54 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     ArrayList<SampleData> Homeworklist;
     ListView listView;
-
+    FragmentTransaction fragmentTransaction;
+    ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         ActionBar ab = getSupportActionBar() ;
         ab.show();
         ab.setTitle("숙제 리스트");
-        listView = (ListView)findViewById(R.id.listView);
-
-        try {
-            this.InitializeHomeworkData();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
         FirebaseMessaging.getInstance().subscribeToTopic("1");
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        BottomNavigationView a = (BottomNavigationView)findViewById(R.id.bottom_nav);
+
+        FragmentManager fm = getSupportFragmentManager();
+        fragmentTransaction = fm.beginTransaction();
+        fragmentTransaction.replace(R.id.fragmentMain,new ListFragment());
+        fragmentTransaction.commit();
+
+        a.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView parent, View v, int position, long id) {
-                SampleData item = (SampleData) parent.getItemAtPosition(position);
-                Intent intent = new Intent(MainActivity.this, DetailsActivity.class);
-                intent.putExtra("detail",item);
-                startActivity(intent);
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                FragmentManager fm = getSupportFragmentManager();
+                fragmentTransaction = fm.beginTransaction();
+                try {
+                    switch (item.getItemId()) {
+                        case R.id.action_list:
+                            fragmentTransaction.replace(R.id.fragmentMain, new ListFragment());
+                            fragmentTransaction.commit();
+                            return true;
+                        case R.id.action_event:
+                            fragmentTransaction.replace(R.id.fragmentMain, new EventFragment());
+                            fragmentTransaction.commit();
+                            return true;
+                        case R.id.action_checkbox:
+                            fragmentTransaction.replace(R.id.fragmentMain, new CheckboxFragment());
+                            fragmentTransaction.commit();
+                            return true;
+                    }
+                    return false;
+                }
+                catch (Exception e){
+                    return false;
+                }
+
             }
         });
+
 
         FirebaseMessaging.getInstance().getToken()
                 .addOnCompleteListener(new OnCompleteListener<String>() {
@@ -98,15 +122,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true ;
             case R.id.action_refresh :
-                try {
-                    this.InitializeHomeworkData();
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
+                FragmentManager fm = getSupportFragmentManager();
+                fragmentTransaction = fm.beginTransaction();
+                fragmentTransaction.replace(R.id.fragmentMain,new ListFragment());
+                fragmentTransaction.commit();
                 return true ;
             // ...
             // ...
@@ -115,28 +134,27 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
-    public void InitializeHomeworkData() throws MalformedURLException, JSONException, ParseException {
-
-        Homeworklist = new ArrayList<SampleData>();
-
-        Network a = new Network("Homework");
-        User user = User.Get();
-        JSONObject json = new JSONObject();
-        json.accumulate("id",user.Getid());
-        json.accumulate("pw",user.Getpw());
-
-
-        JSONArray b = a.PostJsonconnection(json);
-        for(int i = 0; i<b.length();i++) {
-            JSONObject item = b.getJSONObject(i);
-
-            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd\'T\'HH:mm:ss");
-
-            Homeworklist.add(new SampleData(item.getString("title"),item.getString("subject"),
-                                            item.getString("contents"),format.parse(item.getString("date")), item.getString("t_Name")));
-        }
-        final ListAdapter c = new ListAdapter(this,Homeworklist);
-        listView.setAdapter(c);
+    public void loading() {
+        //로딩
+        new android.os.Handler().postDelayed(
+                new Runnable() {
+                    public void run() {
+                        progressDialog = new ProgressDialog(MainActivity.this);
+                        progressDialog.setIndeterminate(true);
+                        progressDialog.setMessage("잠시만 기다려 주세요");
+                        progressDialog.show();
+                    }
+                }, 0);
     }
+
+    public void loadingEnd() {
+        new android.os.Handler().postDelayed(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        progressDialog.dismiss();
+                    }
+                }, 0);
+    }
+
 }

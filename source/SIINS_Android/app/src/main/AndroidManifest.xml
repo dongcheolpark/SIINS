@@ -12,15 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SIINS_Android"
         android:usesCleartextTraffic="true">
-        <activity android:name=".DetailsActivity"></activity>
+        <activity android:name=".LoadingActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".DetailsActivity" />
         <activity android:name=".PreferenceActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <service
@@ -30,17 +31,6 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-
-        <!--<meta-data
-            android:name="com.google.firebase.messaging.default_notification_icon"
-            android:resource="@drawable/ic_stat_ic_notification" />
-        <meta-data
-            android:name="com.google.firebase.messaging.default_notification_color"
-            android:resource="@color/colorAccent" />
-            기본 아이콘 및 색깔 설정
-            -->
-
-
     </application>
 
 </manifest>

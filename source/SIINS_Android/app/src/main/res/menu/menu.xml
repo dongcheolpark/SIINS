@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_list"
+        android:icon="@drawable/ic_list"
+        android:enabled="true"
+        android:title="과제 리스트"/>
+
+    <item
+        android:id="@+id/action_event"
+        android:enabled="true"
+        android:icon="@drawable/ic_event"
+        android:title="달력"/>
+
+    <item
+        android:id="@+id/action_checkbox"
+        android:enabled="true"
+        android:icon="@drawable/ic_checkbox"
+        android:title="관심 과목 변경"/>
+</menu>
