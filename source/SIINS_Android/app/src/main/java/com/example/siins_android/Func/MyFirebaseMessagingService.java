@@ -1,4 +1,4 @@
-package com.example.siins_android;
+package com.example.siins_android.Func;
 
 import android.annotation.SuppressLint;
 import android.util.Log;

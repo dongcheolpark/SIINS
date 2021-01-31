@@ -1,8 +1,10 @@
 package com.example.siins_android;
 
-import android.app.ProgressDialog;
 import android.content.Context;
-import android.widget.ArrayAdapter;
+
+import com.example.siins_android.Func.Network;
+import com.example.siins_android.Model.SampleData;
+import com.example.siins_android.Model.User;
 
 import org.json.JSONArray;
 import org.json.JSONException;

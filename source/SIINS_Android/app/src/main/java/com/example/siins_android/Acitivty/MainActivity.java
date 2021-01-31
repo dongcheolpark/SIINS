@@ -5,8 +5,6 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.navigation.NavController;
-import androidx.navigation.fragment.NavHostFragment;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -14,23 +12,22 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
+import com.example.siins_android.Acitivty.PreferenceActivity;
+import com.example.siins_android.Fragment.CheckboxFragment;
+import com.example.siins_android.Fragment.EventFragment;
+import com.example.siins_android.Fragment.ListFragment;
+import com.example.siins_android.Model.SampleData;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.messaging.FirebaseMessaging;
 
-import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.net.MalformedURLException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -123,6 +120,15 @@ public class MainActivity extends AppCompatActivity {
                 return true ;
             case R.id.action_refresh :
                 FragmentManager fm = getSupportFragmentManager();
+                try {
+                    HomeworkList.InitializeHomeworkData(MainActivity.this);
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
                 fragmentTransaction = fm.beginTransaction();
                 fragmentTransaction.replace(R.id.fragmentMain,new ListFragment());
                 fragmentTransaction.commit();
