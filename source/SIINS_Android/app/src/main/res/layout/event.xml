@@ -5,11 +5,13 @@
     android:divider="@color/black"
     android:orientation="vertical">
 
-    <CalendarView
+    <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/calender"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:dateTextAppearance="@style/TextAppearance.AppCompat.Medium" />
+        android:layout_height="300dp"
+        app:mcv_showOtherDates="all"
+        app:mcv_selectionColor="@color/basic_color"/>
 
     <ListView
         android:id="@+id/listViewEvent"

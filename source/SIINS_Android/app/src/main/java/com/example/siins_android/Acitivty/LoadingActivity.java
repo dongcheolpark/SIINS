@@ -1,4 +1,4 @@
-package com.example.siins_android;
+package com.example.siins_android.Acitivty;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import com.example.siins_android.R;
 
 public class LoadingActivity extends AppCompatActivity {
 

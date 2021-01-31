@@ -1,4 +1,4 @@
-package com.example.siins_android;
+package com.example.siins_android.Decorator;
 import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;

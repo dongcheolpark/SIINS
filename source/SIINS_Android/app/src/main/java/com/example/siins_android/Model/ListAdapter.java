@@ -1,4 +1,4 @@
-package com.example.siins_android;
+package com.example.siins_android.Model;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,10 +9,11 @@ import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
 
+import com.example.siins_android.R;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 
 public class ListAdapter extends BaseAdapter {

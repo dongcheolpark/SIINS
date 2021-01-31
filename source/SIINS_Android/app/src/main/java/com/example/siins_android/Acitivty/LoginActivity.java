@@ -1,4 +1,4 @@
-package com.example.siins_android;
+package com.example.siins_android.Acitivty;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -14,6 +14,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.siins_android.Func.Network;
+import com.example.siins_android.R;
+import com.example.siins_android.Model.User;
 
 import java.net.MalformedURLException;
 

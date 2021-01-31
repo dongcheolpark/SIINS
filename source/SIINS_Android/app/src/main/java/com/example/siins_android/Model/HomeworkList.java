@@ -1,4 +1,4 @@
-package com.example.siins_android;
+package com.example.siins_android.Model;
 
 import android.content.Context;
 

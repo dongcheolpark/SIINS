@@ -1,4 +1,4 @@
-package com.example.siins_android;
+package com.example.siins_android.Acitivty;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -14,11 +14,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
-import com.example.siins_android.Acitivty.PreferenceActivity;
 import com.example.siins_android.Fragment.CheckboxFragment;
 import com.example.siins_android.Fragment.EventFragment;
 import com.example.siins_android.Fragment.ListFragment;
+import com.example.siins_android.Model.HomeworkList;
 import com.example.siins_android.Model.SampleData;
+import com.example.siins_android.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;

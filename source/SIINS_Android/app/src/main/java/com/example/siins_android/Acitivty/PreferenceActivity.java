@@ -1,6 +1,4 @@
-package com.example.siins_android;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.siins_android.Acitivty;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,6 +7,8 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.widget.Toast;
+
+import com.example.siins_android.R;
 
 public class PreferenceActivity extends android.preference.PreferenceActivity {
 

@@ -12,20 +12,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SIINS_Android"
         android:usesCleartextTraffic="true">
-        <activity android:name=".LoadingActivity">
+        <activity android:name=".Acitivty.LoadingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DetailsActivity" />
-        <activity android:name=".PreferenceActivity" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".Acitivty.DetailsActivity" />
+        <activity android:name=".Acitivty.PreferenceActivity" />
+        <activity android:name=".Acitivty.MainActivity" />
+        <activity android:name=".Acitivty.LoginActivity">
         </activity>
 
         <service
-            android:name=".MyFirebaseMessagingService"
+            android:name=".Func.MyFirebaseMessagingService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />

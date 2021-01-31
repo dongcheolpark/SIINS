@@ -1,4 +1,4 @@
-package com.example.siins_android;
+package com.example.siins_android.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,13 +10,16 @@ import android.widget.ListView;
 
 import androidx.fragment.app.Fragment;
 
-import org.json.JSONArray;
+import com.example.siins_android.Acitivty.DetailsActivity;
+import com.example.siins_android.Model.HomeworkList;
+import com.example.siins_android.Model.ListAdapter;
+import com.example.siins_android.R;
+import com.example.siins_android.Model.SampleData;
+
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.net.MalformedURLException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 public class ListFragment extends Fragment {
     ListView listView;

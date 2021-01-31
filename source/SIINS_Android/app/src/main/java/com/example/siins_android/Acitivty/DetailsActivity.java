@@ -1,4 +1,4 @@
-package com.example.siins_android;
+package com.example.siins_android.Acitivty;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,9 +7,10 @@ import android.os.Bundle;
 import android.webkit.WebView;
 import android.widget.TextView;
 
-import java.text.SimpleDateFormat;
+import com.example.siins_android.R;
+import com.example.siins_android.Model.SampleData;
 
-import javax.security.auth.Subject;
+import java.text.SimpleDateFormat;
 
 public class DetailsActivity extends AppCompatActivity {
     TextView title,subject,teacher,date;

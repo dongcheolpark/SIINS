@@ -1,4 +1,4 @@
-package com.example.siins_android;
+package com.example.siins_android.Model;
 
 public class User {
     private static User user;

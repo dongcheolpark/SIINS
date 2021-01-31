@@ -1,27 +1,28 @@
-package com.example.siins_android;
+package com.example.siins_android.Fragment;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.util.EventLog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.CalendarView;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.example.siins_android.Acitivty.DetailsActivity;
+import com.example.siins_android.Decorator.EventDecorator;
+import com.example.siins_android.Model.HomeworkList;
+import com.example.siins_android.Model.ListAdapter;
+import com.example.siins_android.R;
+import com.example.siins_android.Model.SampleData;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import org.threeten.bp.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
