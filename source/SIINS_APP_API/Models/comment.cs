@@ -17,6 +17,6 @@ namespace SIINS_APP_API.Models
         public CommentDBContext(DbContextOptions<CommentDBContext> options) : base(options)
         {
         }
-        public DbSet<Comment> Comment { get; set; }
+        public DbSet<Comment> Comments { get; set; }
     }
 }

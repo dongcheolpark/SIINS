@@ -36,6 +36,7 @@ namespace SIINS_APP_API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Homework>>> GetHomework()
         {
+            DelHomeworks();
             return await _context.Homework.ToListAsync();
         }
 
@@ -44,7 +45,6 @@ namespace SIINS_APP_API.Controllers
         public async Task<ActionResult<Homework>> GetHomework(int id)
         {
             var homework = await _context.Homework.FindAsync(id);
-
             if (homework == null)
             {
                 return NotFound();
@@ -61,6 +61,7 @@ namespace SIINS_APP_API.Controllers
             if (await UserExists.Run(user.id, user.pw, userDB))
             {
                 GetHomeworks a = new GetHomeworks(_context,userDB,noteCatDB,userCatDB,noteClassDB,user.id);
+                DelHomeworks();
                 return await a.Run();
             }
             return null;
@@ -100,7 +101,7 @@ namespace SIINS_APP_API.Controllers
             var data3 = from a in noteClassDB.NoteClasses.ToList()
                         where a.NoteId == item.NoteNo
                         select a;
-            var data4 = from a in commentDB.Comment.ToList()
+            var data4 = from a in commentDB.Comments.ToList()
                         where a.ParentNo == item.NoteNo
                         select a;
             foreach(var item2 in data2)
@@ -113,7 +114,7 @@ namespace SIINS_APP_API.Controllers
             }
             foreach (var item2 in data4)
             {
-                commentDB.Comment.Remove(item2);
+                commentDB.Comments.Remove(item2);
             }
 
             _context.Homework.Remove(item);
