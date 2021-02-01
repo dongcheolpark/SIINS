@@ -1,4 +1,5 @@
-﻿using SIINS_APP_API.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using SIINS_APP_API.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,25 +27,25 @@ namespace SIINS_APP_API.func
             this.noteClassDB = noteClassDB;
             user = userDB.Users.First(e => e.UserId == id);
         }
-        public List<Homework> Run()
+        public async Task<List<Homework>> Run()
         {
 
-            var userlist = from a in userCatDB.SelectedCategories.ToList()
+            var userlist = from a in await userCatDB.SelectedCategories.ToListAsync()
                            where a.CatUName == user.UserNo
                            select a;
 
-            var homeworklist = from a in homeworkDB.Homework.ToList()
+            var homeworklist = from a in await homeworkDB.Homework.ToListAsync()
                                orderby a.Date
                                select a;
 
-            var noteclasslist = noteClassDB.NoteClasses.ToList();
+            var noteclasslist = await noteClassDB.NoteClasses.ToListAsync();
 
             List<Homework> result = new List<Homework>();
 
             foreach (var item in homeworklist)
             {
                 bool check = false;
-                var catlist = from a in noteCatDB.NoteCats.ToList()
+                var catlist = from a in await noteCatDB.NoteCats.ToListAsync()
                               where a.NoteNo == item.NoteNo
                               select a;
                 foreach (var item2 in noteclasslist)

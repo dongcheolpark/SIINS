@@ -31,9 +31,9 @@ namespace SIINS_APP_API.Controllers
         }
 
         [HttpGet("{id}/{pw}")]
-        public ActionResult<bool> GetUser(string id,string pw)
+        public async Task<ActionResult<bool>> GetUser(string id,string pw)
         {
-            if (UserExists.Run(id, pw, _context))
+            if (await UserExists.Run(id, pw, _context))
             {
                 return true;
             }
