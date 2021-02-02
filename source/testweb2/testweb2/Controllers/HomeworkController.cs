@@ -172,45 +172,23 @@ namespace testweb2.Controllers
                     for (int i = 0; i < checkbox.Length; i++)
                     {
                         db3.NoteCat.Add(new NoteCat() { NoteNo = homework.NoteNo, CatAttribute = checkbox[i] });
+                        Noti(checkbox[i], homework);
                     }
 
                     for (int i = 0; i < checkbox2.Length; i++)
                     {
                         db5.NoteClass.Add(new NoteClass { NoteId = homework.NoteNo, NoteClasses = int.Parse(checkbox2[i]) });
                     }
+
                     db5.SaveChanges();
                     db3.SaveChanges();
-
-                    var topic = "1";
-
-                    FirebaseApp.Create(new AppOptions()
-                    {
-                        Credential = GoogleCredential.FromFile(AppDomain.CurrentDomain.BaseDirectory+"SIINS_token.json"),
-                    });
-
-
-                    // See documentation on defining a message payload.
-                    var message = new Message()
-                    {
-
-                        Notification = new Notification()
-                        {
-                            Title = "새로운 과제가 도착했어요!",
-                            Body = homework.Title,
-                        },
-                        Topic = topic
-                    };
-
-                    // Send a message to the devices subscribed to the provided topic.
-                    FirebaseMessaging.DefaultInstance.SendAsync(message);
-
-                    /*Socket client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                    IPEndPoint iPEndPoint = new IPEndPoint(IPAddress.Parse("110.10.38.94"), 1503);
-                    client.Connect(iPEndPoint);
-                    return RedirectToAction("Index");*/
                 }
 
                 return Redirect("~/homework");
+            }
+            catch (FirebaseException e)
+            {
+                return Redirect("~/Error/CustomEr/"+e.Message);
             }
             catch
             {
@@ -361,6 +339,31 @@ namespace testweb2.Controllers
                 _DelHomeworks(item);
             }
             return;
+        }
+
+        void Noti(string topic, Homework homework)
+        {
+
+            FirebaseApp.Create(new AppOptions()
+            {
+                Credential = GoogleCredential.FromFile(AppDomain.CurrentDomain.BaseDirectory + "SIINS_token.json"),
+            });
+
+
+            // See documentation on defining a message payload.
+            var message = new Message()
+            {
+
+                Notification = new Notification()
+                {
+                    Title = "새로운 과제가 도착했어요!",
+                    Body = homework.Title,
+                },
+                Topic = topic
+            };
+
+            // Send a message to the devices subscribed to the provided topic.
+            FirebaseMessaging.DefaultInstance.SendAsync(message);
         }
     }
 }

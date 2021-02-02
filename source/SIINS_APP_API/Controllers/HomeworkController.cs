@@ -37,7 +37,8 @@ namespace SIINS_APP_API.Controllers
         public async Task<ActionResult<IEnumerable<Homework>>> GetHomework()
         {
             DelHomeworks();
-            return await _context.Homework.ToListAsync();
+            var a = await _context.Homework.ToListAsync();
+            return a;
         }
 
         // GET: api/Homework/5

@@ -9,7 +9,7 @@ namespace testweb2.Controllers
     public class ErrorController : Controller
     {
         // GET: Error
-        [Route("Error/CustomEr/{text}")]
+        [HttpGet]
         public ActionResult CustomEr(string text)
         {
             return View(text);

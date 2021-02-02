@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -19,6 +20,7 @@ import com.example.siins_android.Fragment.EventFragment;
 import com.example.siins_android.Fragment.ListFragment;
 import com.example.siins_android.Model.HomeworkList;
 import com.example.siins_android.Model.SampleData;
+import com.example.siins_android.Model.User;
 import com.example.siins_android.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -46,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         ActionBar ab = getSupportActionBar() ;
         ab.show();
         ab.setTitle("숙제 리스트");
-        FirebaseMessaging.getInstance().subscribeToTopic("1");
+        User.setnoti(true);
 
         BottomNavigationView a = (BottomNavigationView)findViewById(R.id.bottom_nav);
 
@@ -71,8 +73,8 @@ public class MainActivity extends AppCompatActivity {
                             fragmentTransaction.commit();
                             return true;
                         case R.id.action_checkbox:
-                            fragmentTransaction.replace(R.id.fragmentMain, new CheckboxFragment());
-                            fragmentTransaction.commit();
+                            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://siins.site/Student/ChangeCat"));
+                            startActivity(intent);
                             return true;
                     }
                     return false;
