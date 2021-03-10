@@ -33,6 +33,15 @@ namespace testweb2.Controllers
             return View();
         }
 
+        public ActionResult resourcepack()
+        {
+            string path = AppDomain.CurrentDomain.BaseDirectory + "Files/";
+            string fileName = "fe.zip";
+            byte[] fileBytes = System.IO.File.ReadAllBytes(path + fileName);
+            return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
+
+        }
+
         public ActionResult DownloadFile()
         {
             string path = AppDomain.CurrentDomain.BaseDirectory + "Files/";
